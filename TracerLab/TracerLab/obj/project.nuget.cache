@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "YrugdAAbYl5MLElFCebjUbVOntLYo3eC/TAcq/PVxne2+erXff1FNGkBAtqUxjJ9iIj6s8lNQjLxTXZgP25J7A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\shell\\source\\repos\\TracerLab\\TracerLab\\TracerLab.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\shell\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

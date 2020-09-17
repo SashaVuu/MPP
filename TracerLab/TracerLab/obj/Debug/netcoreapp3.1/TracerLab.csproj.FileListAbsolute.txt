@@ -1,0 +1,15 @@
+C:\Users\shell\source\repos\TracerLab\TracerLab\bin\Debug\netcoreapp3.1\TracerLab.exe
+C:\Users\shell\source\repos\TracerLab\TracerLab\bin\Debug\netcoreapp3.1\TracerLab.deps.json
+C:\Users\shell\source\repos\TracerLab\TracerLab\bin\Debug\netcoreapp3.1\TracerLab.runtimeconfig.json
+C:\Users\shell\source\repos\TracerLab\TracerLab\bin\Debug\netcoreapp3.1\TracerLab.runtimeconfig.dev.json
+C:\Users\shell\source\repos\TracerLab\TracerLab\bin\Debug\netcoreapp3.1\TracerLab.dll
+C:\Users\shell\source\repos\TracerLab\TracerLab\bin\Debug\netcoreapp3.1\TracerLab.pdb
+C:\Users\shell\source\repos\TracerLab\TracerLab\obj\Debug\netcoreapp3.1\TracerLab.csprojAssemblyReference.cache
+C:\Users\shell\source\repos\TracerLab\TracerLab\obj\Debug\netcoreapp3.1\TracerLab.AssemblyInfoInputs.cache
+C:\Users\shell\source\repos\TracerLab\TracerLab\obj\Debug\netcoreapp3.1\TracerLab.AssemblyInfo.cs
+C:\Users\shell\source\repos\TracerLab\TracerLab\obj\Debug\netcoreapp3.1\TracerLab.dll
+C:\Users\shell\source\repos\TracerLab\TracerLab\obj\Debug\netcoreapp3.1\TracerLab.pdb
+C:\Users\shell\source\repos\TracerLab\TracerLab\obj\Debug\netcoreapp3.1\TracerLab.genruntimeconfig.cache
+C:\Users\shell\source\repos\TracerLab\TracerLab\obj\Debug\netcoreapp3.1\TracerLab.csproj.CoreCompileInputs.cache
+C:\Users\shell\source\repos\TracerLab\TracerLab\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\shell\source\repos\TracerLab\TracerLab\obj\Debug\netcoreapp3.1\TracerLab.csproj.CopyComplete
