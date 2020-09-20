@@ -9,7 +9,7 @@ namespace TracerLab
     class Program
     {
         static public Tracer tracer = new Tracer();
-        static public List<Thread> listOfThread = new List<Thread>();
+
         static void Main(string[] args)
         {
             //tracer.StartTrace();
@@ -17,8 +17,11 @@ namespace TracerLab
             Thread myThread = new Thread(new ThreadStart(SomeMethod1));
             myThread.Start();
             //tracer.StopTrace();
-            JSONSerializer a = new JSONSerializer();
+            ISerializer a = new JSONSerializer();
             a.Serialize(tracer.GetTraceResult(), "C:/BSUIR/a.json");
+
+            ISerializer b = new XMLSerializer();
+            b.Serialize(tracer.GetTraceResult(), "C:/BSUIR/b.xml");
         }
         
         static public void SomeMethod1()

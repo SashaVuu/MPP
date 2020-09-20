@@ -5,6 +5,7 @@ using System.Text;
 
 namespace TracerLab.TraceUtil
 {
+    [Serializable]
     public class ThreadSubstructure
     {
         public long threadTime;

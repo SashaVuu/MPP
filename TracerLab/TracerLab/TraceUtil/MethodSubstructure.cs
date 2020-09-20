@@ -6,17 +6,18 @@ using System.Text;
 
 namespace TracerLab.TraceUtil
 {
+    [Serializable]
     // Содержит основную информацию о методе и его "потомках"
     public class MethodSubstructure
     {
         public string MethodName;
-        public  string ClassOfMethod;
+        public string ClassOfMethod;
         public long TraceTime;
         public List<MethodSubstructure> listOfMethodSubstructures = new List<MethodSubstructure>();
-        
+
         private Stopwatch stopWatch = new Stopwatch();
 
-       
+        public MethodSubstructure() { }
         public MethodSubstructure(MethodBase method)
         {
             MethodName = method.Name;

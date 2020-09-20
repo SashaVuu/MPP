@@ -11,7 +11,6 @@ namespace TracerLab.TraceUtil
     {
         public ConcurrentDictionary<int,ThreadSubstructure> threadSubstructures = new ConcurrentDictionary<int, ThreadSubstructure>();
 
-        
         public void StartTrace(MethodSubstructure method, int threadID)
         {
             ThreadSubstructure threadSubstracture = threadSubstructures.GetOrAdd(threadID, new ThreadSubstructure());
