@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using TracerLab.Serializers;
 using TracerLab.TraceUtil;
+using TracerLab.Writer;
 
 namespace TracerLab
 {
@@ -17,11 +18,12 @@ namespace TracerLab
             Thread myThread = new Thread(new ThreadStart(SomeMethod1));
             myThread.Start();
             //tracer.StopTrace();
-            ISerializer a = new JSONSerializer();
-            a.Serialize(tracer.GetTraceResult(), "C:/BSUIR/a.json");
-
-            ISerializer b = new XMLSerializer();
-            b.Serialize(tracer.GetTraceResult(), "C:/BSUIR/b.xml");
+            ISerializer s = new JSONSerializer();
+            ISerializer m = new XMLSerializer();
+            IWriter consoleWriter = new ConsoleWriter();
+            IWriter fileWriter = new FileWriter();
+            consoleWriter.Write(s.Serialize(tracer.GetTraceResult()));
+            fileWriter.Write(s.Serialize(tracer.GetTraceResult()));
         }
         
         static public void SomeMethod1()

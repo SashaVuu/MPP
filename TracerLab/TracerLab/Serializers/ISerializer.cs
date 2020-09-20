@@ -5,6 +5,6 @@ namespace TracerLab.Serializers
 {
     public interface ISerializer
     {
-        public void Serialize(TraceResult traceResult, string path);
+        public string Serialize(TraceResult traceResult);
     }
 }

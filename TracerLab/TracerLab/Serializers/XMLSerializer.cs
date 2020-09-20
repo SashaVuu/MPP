@@ -10,10 +10,9 @@ namespace TracerLab.Serializers
 {
     public class XMLSerializer:ISerializer
     {
-        public void Serialize(TraceResult traceResult, string path)
+        public string Serialize(TraceResult traceResult)
         {
-            try
-            {
+            
                 XDocument xdoc = new XDocument();
                 XElement threads = new XElement("root");
          
@@ -37,12 +36,9 @@ namespace TracerLab.Serializers
                     threads.Add(currentThreadElem);
                 }
 
-                xdoc.Add(threads);
-                xdoc.Save(path);
-            }
-            catch (Exception ex) {
-                Console.WriteLine(ex.Message);
-            }
+                xdoc.Add(threads); 
+                return xdoc.ToString();
+
         }
 
         private XElement CreateMethodElement (MethodSubstructure currentMethodSubstructure)
