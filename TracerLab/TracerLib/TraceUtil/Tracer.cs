@@ -15,7 +15,7 @@ namespace TracerLib.TraceUtil
 
         public void StartTrace()
         {
-            //Узнаем какой метод вызвал данный, для инициализации полей  MethodSubstructure.
+            
             int currentThreadId = Thread.CurrentThread.ManagedThreadId;
             StackFrame currentFrame = new StackTrace().GetFrame(1);
             MethodBase currentMethod = currentFrame.GetMethod();
