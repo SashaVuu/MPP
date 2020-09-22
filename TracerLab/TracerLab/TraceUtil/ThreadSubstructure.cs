@@ -14,16 +14,11 @@ namespace TracerLab.TraceUtil
 
         [NonSerialized]
         public Stack<MethodSubstructure> stackOfMethodSubstructures = new Stack<MethodSubstructure>();
-
-        public ThreadSubstructure() 
-        {
-            stackOfMethodSubstructures.Push(null);
-        }
-
         
         public void StartTrace(MethodSubstructure method)
         {
-            if (stackOfMethodSubstructures.Count==1) 
+            //Если на момент запуска трейсера стек пуст, то этот метод не является вложенным, добавление в список методов потока.
+            if (stackOfMethodSubstructures.Count==0) 
             {
                 listOfMethodSubstructures.Add(method);
             }
@@ -31,18 +26,40 @@ namespace TracerLab.TraceUtil
             method.StartTrace();
         }
 
+        // *Если стек не пуст, то тот метод, который ниже по стеку является родителем(вложенным в) того, кто выше.
         public void StopTrace() 
         {
-            if (stackOfMethodSubstructures.Count!=0)
-            {
+            try
+            { 
                 MethodSubstructure currentMethod = stackOfMethodSubstructures.Pop();
-                MethodSubstructure parentMethod = stackOfMethodSubstructures.Peek();
+                MethodSubstructure parentMethod = null;
+
                 currentMethod.StopTrace();
-                threadTime += currentMethod.TraceTime;
-                if (parentMethod != null) {
+                threadTime = GetThreadTime();
+
+                // Добавление в список вложенных методов (кого?) метода "родителя" его вложенных методов.
+                if (stackOfMethodSubstructures.Count != 0) 
+                {
+                    parentMethod = stackOfMethodSubstructures.Peek();
                     parentMethod.listOfMethodSubstructures.Add(currentMethod);
                 }
+   
             }
+            catch (Exception ex) 
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        // Возвращает время работы потока(сумма времени методов "верхнего уровня").
+        private long GetThreadTime() 
+        {
+            long time = 0;
+            foreach (MethodSubstructure topLevelMethod in listOfMethodSubstructures)
+            {
+                time += topLevelMethod.TraceTime;
+            }
+            return time;
         }
     }
 }

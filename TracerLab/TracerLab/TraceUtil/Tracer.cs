@@ -9,8 +9,7 @@ namespace TracerLab.TraceUtil
 {
     public class Tracer : ITracer
     {
-        // Структура для хранения иерархии.
-        private TraceResult traceResult = new TraceResult();
+        private readonly TraceResult traceResult = new TraceResult();
 
         public TraceResult GetTraceResult()
         {
@@ -19,9 +18,9 @@ namespace TracerLab.TraceUtil
 
         public void StartTrace()
         {
-            
+            //Узнаем какой метод вызвал данный, для инициализации полей  MethodSubstructure.
             int currentThreadId = Thread.CurrentThread.ManagedThreadId;
-            StackFrame currentFrame = new StackTrace(1).GetFrame(0);
+            StackFrame currentFrame = new StackTrace().GetFrame(1);
             MethodBase currentMethod = currentFrame.GetMethod();
             traceResult.StartTrace(new MethodSubstructure(currentMethod), currentThreadId);
         }

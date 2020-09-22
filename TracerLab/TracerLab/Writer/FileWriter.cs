@@ -7,11 +7,21 @@ namespace TracerLab.Writer
 {
     public class FileWriter:IWriter
     {
-        private const string path = "C:/BSUIR/a.txt";
+        private string Path;
+
+        public FileWriter()
+        {
+            Path = "C:/BSUIR/a.txt";
+        }
 
         public void Write(string text)
         {
-            File.WriteAllText(path,text);
+            File.WriteAllText(Path,text);
+        }
+
+        public void SetPath(string path)
+        {
+            Path = path;
         }
 
     }

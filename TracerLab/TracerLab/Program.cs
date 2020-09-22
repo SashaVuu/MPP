@@ -7,25 +7,30 @@ using TracerLab.Writer;
 
 namespace TracerLab
 {
-    class Program
+    public class Program
     {
         static public Tracer tracer = new Tracer();
 
         static void Main(string[] args)
         {
-            //tracer.StartTrace();
+
+            SomeMethod3();
             SomeMethod1();
+
             Thread myThread = new Thread(new ThreadStart(SomeMethod1));
             myThread.Start();
-            //tracer.StopTrace();
-            ISerializer s = new JSONSerializer();
-            ISerializer m = new XMLSerializer();
+            
+            ISerializer jsonSerializer = new JSONSerializer();
+            ISerializer xmlSerializer = new XMLSerializer();
+
             IWriter consoleWriter = new ConsoleWriter();
             IWriter fileWriter = new FileWriter();
-            consoleWriter.Write(s.Serialize(tracer.GetTraceResult()));
-            fileWriter.Write(s.Serialize(tracer.GetTraceResult()));
+
+            consoleWriter.Write(xmlSerializer.Serialize(tracer.GetTraceResult()));
+            fileWriter.Write(xmlSerializer.Serialize(tracer.GetTraceResult()));
+
         }
-        
+
         static public void SomeMethod1()
         {
             tracer.StartTrace();
@@ -37,10 +42,24 @@ namespace TracerLab
 
         }
 
+        static public int Sum55()
+        {
+            int sum=0;
+            for (int i=0;i<=10;i++)
+            {
+                sum += i;
+            }
+            return sum;
+        }
+
         static public bool SomeMethod2()
         {
             tracer.StartTrace();
-            int someNumber = 100;
+            int sum = 0;
+            for (int i = 0; i <= 10; i++)
+            {
+                sum += i;
+            }
             bool isIt = true;
             SomeMethod3();
             tracer.StopTrace();
@@ -51,7 +70,11 @@ namespace TracerLab
         static public bool SomeMethod3()
         {
             tracer.StartTrace();
-            int someNumber = 100;
+            int sum = 0;
+            for (int i = 0; i <= 10; i++)
+            {
+                sum += i;
+            }
             bool isIt = true;
 
             tracer.StopTrace();

@@ -17,7 +17,6 @@ namespace TracerLab.TraceUtil
 
         private Stopwatch stopWatch = new Stopwatch();
 
-        public MethodSubstructure() { }
         public MethodSubstructure(MethodBase method)
         {
             MethodName = method.Name;
