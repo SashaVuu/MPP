@@ -1549,13 +1549,24 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "Newtonsoft.Json": "12.0.3"
+          "Newtonsoft.Json": "12.0.3",
+          "TracerLib": "1.0.0"
         },
         "compile": {
           "bin/placeholder/TracerLab.dll": {}
         },
         "runtime": {
           "bin/placeholder/TracerLab.dll": {}
+        }
+      },
+      "TracerLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/TracerLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TracerLib.dll": {}
         }
       }
     }
@@ -5434,6 +5445,11 @@
       "type": "project",
       "path": "../TracerLab/TracerLab.csproj",
       "msbuildProject": "../TracerLab/TracerLab.csproj"
+    },
+    "TracerLib/1.0.0": {
+      "type": "project",
+      "path": "../TracerLib/TracerLib.csproj",
+      "msbuildProject": "../TracerLib/TracerLib.csproj"
     }
   },
   "projectFileDependencyGroups": {

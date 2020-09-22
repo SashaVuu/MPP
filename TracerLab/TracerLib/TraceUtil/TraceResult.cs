@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.Concurrent;
-using System.Reflection;
-using System.Text;
 
-namespace TracerLab.TraceUtil
+
+namespace TracerLib.TraceUtil
 {
     [Serializable]
     public class TraceResult

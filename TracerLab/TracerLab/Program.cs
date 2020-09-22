@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using TracerLab.Serializers;
-using TracerLab.TraceUtil;
+using TracerLib.TraceUtil;
 using TracerLab.Writer;
 
 namespace TracerLab

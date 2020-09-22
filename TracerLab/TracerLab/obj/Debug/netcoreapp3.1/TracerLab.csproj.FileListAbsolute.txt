@@ -28,3 +28,5 @@ C:\Users\shell\Documents\GitHub\MPP\TracerLab\TracerLab\obj\Debug\netcoreapp3.1\
 C:\Users\shell\Documents\GitHub\MPP\TracerLab\TracerLab\obj\Debug\netcoreapp3.1\TracerLab.dll
 C:\Users\shell\Documents\GitHub\MPP\TracerLab\TracerLab\obj\Debug\netcoreapp3.1\TracerLab.pdb
 C:\Users\shell\Documents\GitHub\MPP\TracerLab\TracerLab\obj\Debug\netcoreapp3.1\TracerLab.genruntimeconfig.cache
+C:\Users\shell\Documents\GitHub\MPP\TracerLab\TracerLab\bin\Debug\netcoreapp3.1\TracerLib.dll
+C:\Users\shell\Documents\GitHub\MPP\TracerLab\TracerLab\bin\Debug\netcoreapp3.1\TracerLib.pdb

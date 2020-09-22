@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq.Expressions;
 using System.Xml.Linq;
 using System.Xml.Serialization;
-using TracerLab.TraceUtil;
+using TracerLib.TraceUtil;
 
 namespace TracerLab.Serializers
 {

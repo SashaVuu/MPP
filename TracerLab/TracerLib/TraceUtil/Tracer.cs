@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Threading;
 using System.Reflection;
 
-namespace TracerLab.TraceUtil
+namespace TracerLib.TraceUtil
 {
     public class Tracer : ITracer
     {

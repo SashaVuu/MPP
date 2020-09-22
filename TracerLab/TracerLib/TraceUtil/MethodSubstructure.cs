@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
-using System.Text;
 
-namespace TracerLab.TraceUtil
+namespace TracerLib.TraceUtil
 {
     [Serializable]
     // Содержит основную информацию о методе и его "потомках"
