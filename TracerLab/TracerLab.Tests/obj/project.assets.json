@@ -5458,6 +5458,7 @@
       "MSTest.TestFramework >= 2.1.0",
       "Microsoft.NET.Test.Sdk >= 16.5.0",
       "TracerLab >= 1.0.0",
+      "TracerLib >= 1.0.0",
       "coverlet.collector >= 1.2.0"
     ]
   },
@@ -5489,6 +5490,9 @@
           "projectReferences": {
             "C:\\Users\\shell\\Documents\\GitHub\\MPP\\TracerLab\\TracerLab\\TracerLab.csproj": {
               "projectPath": "C:\\Users\\shell\\Documents\\GitHub\\MPP\\TracerLab\\TracerLab\\TracerLab.csproj"
+            },
+            "C:\\Users\\shell\\Documents\\GitHub\\MPP\\TracerLab\\TracerLib\\TracerLib.csproj": {
+              "projectPath": "C:\\Users\\shell\\Documents\\GitHub\\MPP\\TracerLab\\TracerLib\\TracerLib.csproj"
             }
           }
         }

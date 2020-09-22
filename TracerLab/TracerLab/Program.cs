@@ -19,7 +19,8 @@ namespace TracerLab
 
             Thread myThread = new Thread(new ThreadStart(SomeMethod1));
             myThread.Start();
-            
+            myThread.Join();
+
             ISerializer jsonSerializer = new JSONSerializer();
             ISerializer xmlSerializer = new XMLSerializer();
 

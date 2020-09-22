@@ -29,6 +29,9 @@
             "projectReferences": {
               "C:\\Users\\shell\\Documents\\GitHub\\MPP\\TracerLab\\TracerLab\\TracerLab.csproj": {
                 "projectPath": "C:\\Users\\shell\\Documents\\GitHub\\MPP\\TracerLab\\TracerLab\\TracerLab.csproj"
+              },
+              "C:\\Users\\shell\\Documents\\GitHub\\MPP\\TracerLab\\TracerLib\\TracerLib.csproj": {
+                "projectPath": "C:\\Users\\shell\\Documents\\GitHub\\MPP\\TracerLab\\TracerLib\\TracerLib.csproj"
               }
             }
           }

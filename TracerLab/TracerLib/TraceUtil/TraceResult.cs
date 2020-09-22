@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
 
-
 namespace TracerLib.TraceUtil
 {
     [Serializable]

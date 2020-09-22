@@ -1,5 +1,4 @@
-﻿
-namespace TracerLib.TraceUtil
+﻿namespace TracerLib.TraceUtil
 {
     public interface ITracer
     {

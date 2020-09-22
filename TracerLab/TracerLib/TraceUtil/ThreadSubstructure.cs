@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
-
-
 namespace TracerLib.TraceUtil
 {
     [Serializable]
@@ -35,6 +33,7 @@ namespace TracerLib.TraceUtil
                 MethodSubstructure parentMethod = null;
 
                 currentMethod.StopTrace();
+
                 threadTime = GetThreadTime();
 
                 // Добавление в список вложенных методов (кого?) метода "родителя" его вложенных методов.

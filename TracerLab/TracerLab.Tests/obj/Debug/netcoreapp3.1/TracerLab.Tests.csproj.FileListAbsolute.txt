@@ -95,3 +95,5 @@ C:\Users\shell\Documents\GitHub\MPP\TracerLab\TracerLab.Tests\obj\Debug\netcorea
 C:\Users\shell\Documents\GitHub\MPP\TracerLab\TracerLab.Tests\obj\Debug\netcoreapp3.1\TracerLab.Tests.dll
 C:\Users\shell\Documents\GitHub\MPP\TracerLab\TracerLab.Tests\obj\Debug\netcoreapp3.1\TracerLab.Tests.pdb
 C:\Users\shell\Documents\GitHub\MPP\TracerLab\TracerLab.Tests\obj\Debug\netcoreapp3.1\TracerLab.Tests.genruntimeconfig.cache
+C:\Users\shell\Documents\GitHub\MPP\TracerLab\TracerLab.Tests\bin\Debug\netcoreapp3.1\TracerLib.dll
+C:\Users\shell\Documents\GitHub\MPP\TracerLab\TracerLab.Tests\bin\Debug\netcoreapp3.1\TracerLib.pdb
