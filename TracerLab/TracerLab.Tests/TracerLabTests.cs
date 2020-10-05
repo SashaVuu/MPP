@@ -30,7 +30,7 @@ namespace TracerLab.Tests
         void SomeMethod()
         {
             tracer.StartTrace();
-            Thread.Sleep(10);
+            Thread.Sleep(100);
             tracer.StopTrace();
         }
 
@@ -47,6 +47,7 @@ namespace TracerLab.Tests
         {
             CreateThreads();
             Assert.AreEqual(expectedThreadsAmount,tracer.GetTraceResult().threadSubstructures.Count);
+      
         }
 
         [TestMethod]

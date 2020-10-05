@@ -6,3 +6,4 @@ C:\Users\shell\Documents\GitHub\MPP\TracerLab\TracerLib\obj\Debug\netstandard2.0
 C:\Users\shell\Documents\GitHub\MPP\TracerLab\TracerLib\obj\Debug\netstandard2.0\TracerLib.csproj.CoreCompileInputs.cache
 C:\Users\shell\Documents\GitHub\MPP\TracerLab\TracerLib\obj\Debug\netstandard2.0\TracerLib.dll
 C:\Users\shell\Documents\GitHub\MPP\TracerLab\TracerLib\obj\Debug\netstandard2.0\TracerLib.pdb
+C:\Users\shell\Documents\GitHub\MPP\TracerLab\TracerLib\obj\Debug\netstandard2.0\TracerLib.csprojAssemblyReference.cache

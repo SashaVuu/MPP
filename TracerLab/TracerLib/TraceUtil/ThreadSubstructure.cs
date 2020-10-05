@@ -27,8 +27,6 @@ namespace TracerLib.TraceUtil
         // *Если стек не пуст, то тот метод, который ниже по стеку является родителем(вложенным в) того, кто выше.
         public void StopTrace() 
         {
-            try
-            { 
                 MethodSubstructure currentMethod = stackOfMethodSubstructures.Pop();
                 MethodSubstructure parentMethod = null;
 
@@ -43,11 +41,6 @@ namespace TracerLib.TraceUtil
                     parentMethod.listOfMethodSubstructures.Add(currentMethod);
                 }
    
-            }
-            catch (Exception ex) 
-            {
-                Console.WriteLine(ex.Message);
-            }
         }
 
         // Возвращает время работы потока(сумма времени методов "верхнего уровня").

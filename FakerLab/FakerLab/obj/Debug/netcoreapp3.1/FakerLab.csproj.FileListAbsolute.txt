@@ -1,0 +1,13 @@
+C:\Users\shell\source\repos\FakerLab\FakerLab\bin\Debug\netcoreapp3.1\FakerLab.exe
+C:\Users\shell\source\repos\FakerLab\FakerLab\bin\Debug\netcoreapp3.1\FakerLab.deps.json
+C:\Users\shell\source\repos\FakerLab\FakerLab\bin\Debug\netcoreapp3.1\FakerLab.runtimeconfig.json
+C:\Users\shell\source\repos\FakerLab\FakerLab\bin\Debug\netcoreapp3.1\FakerLab.runtimeconfig.dev.json
+C:\Users\shell\source\repos\FakerLab\FakerLab\bin\Debug\netcoreapp3.1\FakerLab.dll
+C:\Users\shell\source\repos\FakerLab\FakerLab\bin\Debug\netcoreapp3.1\FakerLab.pdb
+C:\Users\shell\source\repos\FakerLab\FakerLab\obj\Debug\netcoreapp3.1\FakerLab.csprojAssemblyReference.cache
+C:\Users\shell\source\repos\FakerLab\FakerLab\obj\Debug\netcoreapp3.1\FakerLab.AssemblyInfoInputs.cache
+C:\Users\shell\source\repos\FakerLab\FakerLab\obj\Debug\netcoreapp3.1\FakerLab.AssemblyInfo.cs
+C:\Users\shell\source\repos\FakerLab\FakerLab\obj\Debug\netcoreapp3.1\FakerLab.csproj.CoreCompileInputs.cache
+C:\Users\shell\source\repos\FakerLab\FakerLab\obj\Debug\netcoreapp3.1\FakerLab.dll
+C:\Users\shell\source\repos\FakerLab\FakerLab\obj\Debug\netcoreapp3.1\FakerLab.pdb
+C:\Users\shell\source\repos\FakerLab\FakerLab\obj\Debug\netcoreapp3.1\FakerLab.genruntimeconfig.cache

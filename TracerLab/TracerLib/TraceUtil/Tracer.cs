@@ -17,7 +17,7 @@ namespace TracerLib.TraceUtil
         {
             
             int currentThreadId = Thread.CurrentThread.ManagedThreadId;
-            StackFrame currentFrame = new StackTrace().GetFrame(1);
+            StackFrame currentFrame = new StackTrace().GetFrame(2);
             MethodBase currentMethod = currentFrame.GetMethod();
             traceResult.StartTrace(new MethodSubstructure(currentMethod), currentThreadId);
         }
