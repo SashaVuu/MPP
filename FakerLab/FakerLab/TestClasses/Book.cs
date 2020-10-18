@@ -8,12 +8,16 @@ namespace FakerLab.TestClasses
     {
         public readonly string Name;
         public readonly int Price;
-        public A Aw;
-        public Book(string name, int price, A kek)
+        public Page PageInst;
+        public int Color;
+        public List<int> list;
+        public double kek;
+
+        public Book(string name, int price, Page kek)
         {
             Name = name;
             Price = price;
-            Aw = kek;
+            PageInst = kek;
         }
 
         public Book(string name, int price)

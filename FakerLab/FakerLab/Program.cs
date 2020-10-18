@@ -1,42 +1,35 @@
-﻿using FakerLab.FakerLib;
-using FakerLab.Generators;
-using FakerLab.TestClasses;
+﻿using FakerLab.TestClasses;
+using FakerLib.FakerUtil;
+using FakerLib.Generators;
 using System;
-using System.Reflection;
+using System.Collections.Generic;
+
 
 namespace FakerLab
 {
 
     class Program
     {
-        static object CreateMyObject(Type myType, Type[] parameters, object[] values)
-        {
-            // reflection (получаем конструктор по типам) 
-            ConstructorInfo info = myType.GetConstructor(parameters);
-
-            // reflection (создаем объект, вызывая конструктор) 
-            object myObj = info.Invoke(values);
-
-            // result 
-            return myObj;
-        }
-
+ 
         static void Main(string[] args)
         {
             Faker faker = new Faker();
+            double d = faker.Create<double>();
+            A b = faker.Create<A>();
             Book a = faker.Create<Book>();
-            Console.WriteLine(a.Aw.Method());
-            Console.WriteLine(a);
+            Console.WriteLine(a.PageInst.Method());
+            Console.WriteLine(a.Name);
+            Console.WriteLine(a.Price);
+            Console.WriteLine(a.PageInst.Number);
+
+            //public fields
+            Console.WriteLine("-----------");
+            Console.WriteLine(a.Color);
+            Console.WriteLine(a.PageInst.About);
+            Console.WriteLine(a.PageInst.SetStr);
 
 
-
-            Generator gen = new Generator();
-            Console.WriteLine(gen.GenerateInt());
-            Console.WriteLine(gen.GenerateDouble().ToString());
-            Console.WriteLine(gen.GenerateFloat().ToString());
-            Console.WriteLine(gen.GenerateLong().ToString());
-            Console.WriteLine(gen.GenerateChar());
-            Console.WriteLine(gen.GenerateString());
+            Console.WriteLine(a.kek);
         }
     }
 }

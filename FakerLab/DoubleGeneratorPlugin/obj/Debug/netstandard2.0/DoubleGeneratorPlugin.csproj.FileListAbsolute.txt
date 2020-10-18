@@ -1,0 +1,12 @@
+C:\Users\shell\Documents\GitHub\MPP\FakerLab\DoubleGeneratorPlugin\bin\Debug\netstandard2.0\DoubleGeneratorPlugin.deps.json
+C:\Users\shell\Documents\GitHub\MPP\FakerLab\DoubleGeneratorPlugin\bin\Debug\netstandard2.0\DoubleGeneratorPlugin.dll
+C:\Users\shell\Documents\GitHub\MPP\FakerLab\DoubleGeneratorPlugin\bin\Debug\netstandard2.0\DoubleGeneratorPlugin.pdb
+C:\Users\shell\Documents\GitHub\MPP\FakerLab\DoubleGeneratorPlugin\bin\Debug\netstandard2.0\FakerLib.dll
+C:\Users\shell\Documents\GitHub\MPP\FakerLab\DoubleGeneratorPlugin\bin\Debug\netstandard2.0\FakerLib.pdb
+C:\Users\shell\Documents\GitHub\MPP\FakerLab\DoubleGeneratorPlugin\obj\Debug\netstandard2.0\DoubleGeneratorPlugin.csprojAssemblyReference.cache
+C:\Users\shell\Documents\GitHub\MPP\FakerLab\DoubleGeneratorPlugin\obj\Debug\netstandard2.0\DoubleGeneratorPlugin.AssemblyInfoInputs.cache
+C:\Users\shell\Documents\GitHub\MPP\FakerLab\DoubleGeneratorPlugin\obj\Debug\netstandard2.0\DoubleGeneratorPlugin.AssemblyInfo.cs
+C:\Users\shell\Documents\GitHub\MPP\FakerLab\DoubleGeneratorPlugin\obj\Debug\netstandard2.0\DoubleGeneratorPlugin.csproj.CoreCompileInputs.cache
+C:\Users\shell\Documents\GitHub\MPP\FakerLab\DoubleGeneratorPlugin\obj\Debug\netstandard2.0\DoubleGeneratorPlugin.csproj.CopyComplete
+C:\Users\shell\Documents\GitHub\MPP\FakerLab\DoubleGeneratorPlugin\obj\Debug\netstandard2.0\DoubleGeneratorPlugin.dll
+C:\Users\shell\Documents\GitHub\MPP\FakerLab\DoubleGeneratorPlugin\obj\Debug\netstandard2.0\DoubleGeneratorPlugin.pdb

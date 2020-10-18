@@ -6,17 +6,15 @@ namespace FakerLab.TestClasses
 {
     public class A
     {
-        public int a;
-        private bool b;
+        public int aInt {  set; get; }
+        public List<List<Page>> aListListPage;
+        public A instA;
+        public double aDouble;
+        private int aIntPrvt;
 
-        public string Method()
+        public A(List<List<Page>> a)
         {
-            string hi = "hello";
-            string wrld = "world";
-
-            return hi + " " + wrld;
-
+            aListListPage = a;
         }
-
     }
 }

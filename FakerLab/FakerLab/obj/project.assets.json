@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {}
+    ".NETCoreApp,Version=v3.1": {
+      "FakerLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/FakerLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/FakerLib.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "FakerLib/1.0.0": {
+      "type": "project",
+      "path": "../FakerLib/FakerLib.csproj",
+      "msbuildProject": "../FakerLib/FakerLib.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": []
+    ".NETCoreApp,Version=v3.1": [
+      "FakerLib >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\shell\\.nuget\\packages\\": {}
@@ -13,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\shell\\source\\repos\\FakerLab\\FakerLab\\FakerLab.csproj",
+      "projectUniqueName": "C:\\Users\\shell\\Documents\\GitHub\\MPP\\FakerLab\\FakerLab\\FakerLab.csproj",
       "projectName": "FakerLab",
-      "projectPath": "C:\\Users\\shell\\source\\repos\\FakerLab\\FakerLab\\FakerLab.csproj",
+      "projectPath": "C:\\Users\\shell\\Documents\\GitHub\\MPP\\FakerLab\\FakerLab\\FakerLab.csproj",
       "packagesPath": "C:\\Users\\shell\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\shell\\source\\repos\\FakerLab\\FakerLab\\obj\\",
+      "outputPath": "C:\\Users\\shell\\Documents\\GitHub\\MPP\\FakerLab\\FakerLab\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\shell\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -32,7 +51,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\shell\\Documents\\GitHub\\MPP\\FakerLab\\FakerLib\\FakerLib.csproj": {
+              "projectPath": "C:\\Users\\shell\\Documents\\GitHub\\MPP\\FakerLab\\FakerLib\\FakerLib.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

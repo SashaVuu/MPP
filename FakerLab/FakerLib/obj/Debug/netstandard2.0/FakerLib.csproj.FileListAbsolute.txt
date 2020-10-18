@@ -1,0 +1,8 @@
+C:\Users\shell\Documents\GitHub\MPP\FakerLab\FakerLib\obj\Debug\netstandard2.0\FakerLib.AssemblyInfoInputs.cache
+C:\Users\shell\Documents\GitHub\MPP\FakerLab\FakerLib\obj\Debug\netstandard2.0\FakerLib.AssemblyInfo.cs
+C:\Users\shell\Documents\GitHub\MPP\FakerLab\FakerLib\obj\Debug\netstandard2.0\FakerLib.csproj.CoreCompileInputs.cache
+C:\Users\shell\Documents\GitHub\MPP\FakerLab\FakerLib\bin\Debug\netstandard2.0\FakerLib.deps.json
+C:\Users\shell\Documents\GitHub\MPP\FakerLab\FakerLib\bin\Debug\netstandard2.0\FakerLib.dll
+C:\Users\shell\Documents\GitHub\MPP\FakerLab\FakerLib\bin\Debug\netstandard2.0\FakerLib.pdb
+C:\Users\shell\Documents\GitHub\MPP\FakerLab\FakerLib\obj\Debug\netstandard2.0\FakerLib.dll
+C:\Users\shell\Documents\GitHub\MPP\FakerLab\FakerLib\obj\Debug\netstandard2.0\FakerLib.pdb

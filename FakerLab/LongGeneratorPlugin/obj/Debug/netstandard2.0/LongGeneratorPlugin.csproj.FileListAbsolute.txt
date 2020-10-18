@@ -1,0 +1,12 @@
+C:\Users\shell\Documents\GitHub\MPP\FakerLab\LongGeneratorPlugin\bin\Debug\netstandard2.0\LongGeneratorPlugin.deps.json
+C:\Users\shell\Documents\GitHub\MPP\FakerLab\LongGeneratorPlugin\bin\Debug\netstandard2.0\LongGeneratorPlugin.dll
+C:\Users\shell\Documents\GitHub\MPP\FakerLab\LongGeneratorPlugin\bin\Debug\netstandard2.0\LongGeneratorPlugin.pdb
+C:\Users\shell\Documents\GitHub\MPP\FakerLab\LongGeneratorPlugin\bin\Debug\netstandard2.0\FakerLib.dll
+C:\Users\shell\Documents\GitHub\MPP\FakerLab\LongGeneratorPlugin\bin\Debug\netstandard2.0\FakerLib.pdb
+C:\Users\shell\Documents\GitHub\MPP\FakerLab\LongGeneratorPlugin\obj\Debug\netstandard2.0\LongGeneratorPlugin.csprojAssemblyReference.cache
+C:\Users\shell\Documents\GitHub\MPP\FakerLab\LongGeneratorPlugin\obj\Debug\netstandard2.0\LongGeneratorPlugin.AssemblyInfoInputs.cache
+C:\Users\shell\Documents\GitHub\MPP\FakerLab\LongGeneratorPlugin\obj\Debug\netstandard2.0\LongGeneratorPlugin.AssemblyInfo.cs
+C:\Users\shell\Documents\GitHub\MPP\FakerLab\LongGeneratorPlugin\obj\Debug\netstandard2.0\LongGeneratorPlugin.csproj.CoreCompileInputs.cache
+C:\Users\shell\Documents\GitHub\MPP\FakerLab\LongGeneratorPlugin\obj\Debug\netstandard2.0\LongGeneratorPlugin.csproj.CopyComplete
+C:\Users\shell\Documents\GitHub\MPP\FakerLab\LongGeneratorPlugin\obj\Debug\netstandard2.0\LongGeneratorPlugin.dll
+C:\Users\shell\Documents\GitHub\MPP\FakerLab\LongGeneratorPlugin\obj\Debug\netstandard2.0\LongGeneratorPlugin.pdb
