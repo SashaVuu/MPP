@@ -1,0 +1,13 @@
+C:\Users\shell\source\repos\AssemblyBrowserLab\AssemblyBrowserLab\bin\Debug\netcoreapp3.1\AssemblyBrowserLab.exe
+C:\Users\shell\source\repos\AssemblyBrowserLab\AssemblyBrowserLab\bin\Debug\netcoreapp3.1\AssemblyBrowserLab.deps.json
+C:\Users\shell\source\repos\AssemblyBrowserLab\AssemblyBrowserLab\bin\Debug\netcoreapp3.1\AssemblyBrowserLab.runtimeconfig.json
+C:\Users\shell\source\repos\AssemblyBrowserLab\AssemblyBrowserLab\bin\Debug\netcoreapp3.1\AssemblyBrowserLab.runtimeconfig.dev.json
+C:\Users\shell\source\repos\AssemblyBrowserLab\AssemblyBrowserLab\bin\Debug\netcoreapp3.1\AssemblyBrowserLab.dll
+C:\Users\shell\source\repos\AssemblyBrowserLab\AssemblyBrowserLab\bin\Debug\netcoreapp3.1\AssemblyBrowserLab.pdb
+C:\Users\shell\source\repos\AssemblyBrowserLab\AssemblyBrowserLab\obj\Debug\netcoreapp3.1\AssemblyBrowserLab.csprojAssemblyReference.cache
+C:\Users\shell\source\repos\AssemblyBrowserLab\AssemblyBrowserLab\obj\Debug\netcoreapp3.1\AssemblyBrowserLab.AssemblyInfoInputs.cache
+C:\Users\shell\source\repos\AssemblyBrowserLab\AssemblyBrowserLab\obj\Debug\netcoreapp3.1\AssemblyBrowserLab.AssemblyInfo.cs
+C:\Users\shell\source\repos\AssemblyBrowserLab\AssemblyBrowserLab\obj\Debug\netcoreapp3.1\AssemblyBrowserLab.csproj.CoreCompileInputs.cache
+C:\Users\shell\source\repos\AssemblyBrowserLab\AssemblyBrowserLab\obj\Debug\netcoreapp3.1\AssemblyBrowserLab.dll
+C:\Users\shell\source\repos\AssemblyBrowserLab\AssemblyBrowserLab\obj\Debug\netcoreapp3.1\AssemblyBrowserLab.pdb
+C:\Users\shell\source\repos\AssemblyBrowserLab\AssemblyBrowserLab\obj\Debug\netcoreapp3.1\AssemblyBrowserLab.genruntimeconfig.cache

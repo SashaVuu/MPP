@@ -1,0 +1,9 @@
+C:\Users\shell\source\repos\AssemblyBrowserLab\AssemblyBrowserLib\bin\Debug\netstandard2.0\AssemblyBrowserLib.deps.json
+C:\Users\shell\source\repos\AssemblyBrowserLab\AssemblyBrowserLib\bin\Debug\netstandard2.0\AssemblyBrowserLib.dll
+C:\Users\shell\source\repos\AssemblyBrowserLab\AssemblyBrowserLib\bin\Debug\netstandard2.0\AssemblyBrowserLib.pdb
+C:\Users\shell\source\repos\AssemblyBrowserLab\AssemblyBrowserLib\obj\Debug\netstandard2.0\AssemblyBrowserLib.csprojAssemblyReference.cache
+C:\Users\shell\source\repos\AssemblyBrowserLab\AssemblyBrowserLib\obj\Debug\netstandard2.0\AssemblyBrowserLib.AssemblyInfoInputs.cache
+C:\Users\shell\source\repos\AssemblyBrowserLab\AssemblyBrowserLib\obj\Debug\netstandard2.0\AssemblyBrowserLib.AssemblyInfo.cs
+C:\Users\shell\source\repos\AssemblyBrowserLab\AssemblyBrowserLib\obj\Debug\netstandard2.0\AssemblyBrowserLib.csproj.CoreCompileInputs.cache
+C:\Users\shell\source\repos\AssemblyBrowserLab\AssemblyBrowserLib\obj\Debug\netstandard2.0\AssemblyBrowserLib.dll
+C:\Users\shell\source\repos\AssemblyBrowserLab\AssemblyBrowserLib\obj\Debug\netstandard2.0\AssemblyBrowserLib.pdb
