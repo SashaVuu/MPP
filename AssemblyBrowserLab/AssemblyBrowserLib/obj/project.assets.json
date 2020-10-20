@@ -185,11 +185,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\shell\\source\\repos\\AssemblyBrowserLab\\AssemblyBrowserLib\\AssemblyBrowserLib.csproj",
+      "projectUniqueName": "C:\\Users\\shell\\Documents\\GitHub\\MPP\\AssemblyBrowserLab\\AssemblyBrowserLib\\AssemblyBrowserLib.csproj",
       "projectName": "AssemblyBrowserLib",
-      "projectPath": "C:\\Users\\shell\\source\\repos\\AssemblyBrowserLab\\AssemblyBrowserLib\\AssemblyBrowserLib.csproj",
+      "projectPath": "C:\\Users\\shell\\Documents\\GitHub\\MPP\\AssemblyBrowserLab\\AssemblyBrowserLib\\AssemblyBrowserLib.csproj",
       "packagesPath": "C:\\Users\\shell\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\shell\\source\\repos\\AssemblyBrowserLab\\AssemblyBrowserLib\\obj\\",
+      "outputPath": "C:\\Users\\shell\\Documents\\GitHub\\MPP\\AssemblyBrowserLab\\AssemblyBrowserLib\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\shell\\AppData\\Roaming\\NuGet\\NuGet.Config",

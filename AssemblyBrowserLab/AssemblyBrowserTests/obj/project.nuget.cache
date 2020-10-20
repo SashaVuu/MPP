@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8fvpRE6NEqX0C9ajxiuu7pwRfbJzAJf4rSuqo+i8C+V21/4T6o6YXxQDnRjQ1LaeIxz5tMDeHYv2ANu/G3hQmg==",
+  "dgSpecHash": "cos/VnNDxXhhwbPjUYwmzFgNlIP+EFmTQFXfyk4+T1HNiU3Y1cHED/fE3aPquiQr1DJ4FItFO3n1DuPq9xBGFA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\shell\\source\\repos\\AssemblyBrowserLab\\AssemblyBrowserTests\\AssemblyBrowserTests.csproj",
+  "projectFilePath": "C:\\Users\\shell\\Documents\\GitHub\\MPP\\AssemblyBrowserLab\\AssemblyBrowserTests\\AssemblyBrowserTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\shell\\.nuget\\packages\\coverlet.collector\\1.2.0\\coverlet.collector.1.2.0.nupkg.sha512",
     "C:\\Users\\shell\\.nuget\\packages\\microsoft.codecoverage\\16.5.0\\microsoft.codecoverage.16.5.0.nupkg.sha512",

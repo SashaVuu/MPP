@@ -1,0 +1,40 @@
+﻿<Window x:Class="WpfAssemblyBrowserApp.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAssemblyBrowserApp"
+        mc:Ignorable="d"
+        Title="AssemblyBrowser" Height="608.4" Width="418" WindowStyle="ThreeDBorderWindow" ResizeMode="NoResize">
+    <Grid x:Name="MainRoot" Background="AliceBlue">
+        <Button Content="Load Assembly"
+                Command="{Binding LoadAssemblyCommand}"
+                HorizontalAlignment="Left" 
+                Margin="33,498,0,0" 
+                Background="White" 
+                VerticalAlignment="Top" 
+                Width="334" Height="45" 
+                FontSize="16" FontWeight="Bold" FontStyle="Italic"/>
+        
+        <TreeView ItemsSource="{Binding AssemblyNamespaces}"  HorizontalAlignment="Left" Height="438" Margin="33,31,0,0" VerticalAlignment="Top" Width="334">
+            <TreeView.ItemTemplate>
+                <DataTemplate>
+                    <TreeViewItem Header="{Binding FullName}" ItemsSource="{Binding types}" BorderThickness="0">
+                        <TreeViewItem.ItemTemplate>
+                            <DataTemplate>
+                                <TreeViewItem Header="{Binding FullName}" ItemsSource="{Binding typeMembers}" BorderThickness="0" IsExpanded="True">
+                                    <TreeViewItem.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding FullName}"/>
+                                        </DataTemplate>
+                                    </TreeViewItem.ItemTemplate>
+                                </TreeViewItem>
+                            </DataTemplate>
+                        </TreeViewItem.ItemTemplate>
+                    </TreeViewItem>
+                </DataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
+
+    </Grid>
+</Window>

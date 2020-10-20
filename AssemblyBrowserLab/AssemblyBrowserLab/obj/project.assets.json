@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {}
+    ".NETCoreApp,Version=v3.1": {
+      "AssemblyBrowserLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/AssemblyBrowserLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AssemblyBrowserLib.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "AssemblyBrowserLib/1.0.0": {
+      "type": "project",
+      "path": "../AssemblyBrowserLib/AssemblyBrowserLib.csproj",
+      "msbuildProject": "../AssemblyBrowserLib/AssemblyBrowserLib.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": []
+    ".NETCoreApp,Version=v3.1": [
+      "AssemblyBrowserLib >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\shell\\.nuget\\packages\\": {}
@@ -13,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\shell\\source\\repos\\AssemblyBrowserLab\\AssemblyBrowserLab\\AssemblyBrowserLab.csproj",
+      "projectUniqueName": "C:\\Users\\shell\\Documents\\GitHub\\MPP\\AssemblyBrowserLab\\AssemblyBrowserLab\\AssemblyBrowserLab.csproj",
       "projectName": "AssemblyBrowserLab",
-      "projectPath": "C:\\Users\\shell\\source\\repos\\AssemblyBrowserLab\\AssemblyBrowserLab\\AssemblyBrowserLab.csproj",
+      "projectPath": "C:\\Users\\shell\\Documents\\GitHub\\MPP\\AssemblyBrowserLab\\AssemblyBrowserLab\\AssemblyBrowserLab.csproj",
       "packagesPath": "C:\\Users\\shell\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\shell\\source\\repos\\AssemblyBrowserLab\\AssemblyBrowserLab\\obj\\",
+      "outputPath": "C:\\Users\\shell\\Documents\\GitHub\\MPP\\AssemblyBrowserLab\\AssemblyBrowserLab\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\shell\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -32,7 +51,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\shell\\Documents\\GitHub\\MPP\\AssemblyBrowserLab\\AssemblyBrowserLib\\AssemblyBrowserLib.csproj": {
+              "projectPath": "C:\\Users\\shell\\Documents\\GitHub\\MPP\\AssemblyBrowserLab\\AssemblyBrowserLib\\AssemblyBrowserLib.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

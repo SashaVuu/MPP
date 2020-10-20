@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v3.1": {
       "AssemblyBrowserLab/1.0.0": {
+        "dependencies": {
+          "AssemblyBrowserLib": "1.0.0"
+        },
         "runtime": {
           "AssemblyBrowserLab.dll": {}
+        }
+      },
+      "AssemblyBrowserLib/1.0.0": {
+        "runtime": {
+          "AssemblyBrowserLib.dll": {}
         }
       }
     }
   },
   "libraries": {
     "AssemblyBrowserLab/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AssemblyBrowserLib/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

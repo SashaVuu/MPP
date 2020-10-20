@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\shell\\source\\repos\\AssemblyBrowserLab\\AssemblyBrowserTests\\AssemblyBrowserTests.csproj": {}
+    "C:\\Users\\shell\\Documents\\GitHub\\MPP\\AssemblyBrowserLab\\AssemblyBrowserTests\\AssemblyBrowserTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\shell\\source\\repos\\AssemblyBrowserLab\\AssemblyBrowserTests\\AssemblyBrowserTests.csproj": {
+    "C:\\Users\\shell\\Documents\\GitHub\\MPP\\AssemblyBrowserLab\\AssemblyBrowserTests\\AssemblyBrowserTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\shell\\source\\repos\\AssemblyBrowserLab\\AssemblyBrowserTests\\AssemblyBrowserTests.csproj",
+        "projectUniqueName": "C:\\Users\\shell\\Documents\\GitHub\\MPP\\AssemblyBrowserLab\\AssemblyBrowserTests\\AssemblyBrowserTests.csproj",
         "projectName": "AssemblyBrowserTests",
-        "projectPath": "C:\\Users\\shell\\source\\repos\\AssemblyBrowserLab\\AssemblyBrowserTests\\AssemblyBrowserTests.csproj",
+        "projectPath": "C:\\Users\\shell\\Documents\\GitHub\\MPP\\AssemblyBrowserLab\\AssemblyBrowserTests\\AssemblyBrowserTests.csproj",
         "packagesPath": "C:\\Users\\shell\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\shell\\source\\repos\\AssemblyBrowserLab\\AssemblyBrowserTests\\obj\\",
+        "outputPath": "C:\\Users\\shell\\Documents\\GitHub\\MPP\\AssemblyBrowserLab\\AssemblyBrowserTests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\shell\\AppData\\Roaming\\NuGet\\NuGet.Config",

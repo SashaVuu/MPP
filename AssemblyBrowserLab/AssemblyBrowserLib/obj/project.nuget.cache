@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Pnkow1GvJzvGDN2NAJgrixcYk+IQg5q8qkXLDsRaLBf0AEbaadKK+r5TqewUAiGk3fDsgS6t8v0v/zeOnXRqDg==",
+  "dgSpecHash": "KgPLpn/cBjOeV0es8VbP2TkG87NERSvEnPPpDYxPKx8yog5VnFgmUFoxabKUg1a51eu/iUawmnD2R3ZZlxqSWg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\shell\\source\\repos\\AssemblyBrowserLab\\AssemblyBrowserLib\\AssemblyBrowserLib.csproj",
+  "projectFilePath": "C:\\Users\\shell\\Documents\\GitHub\\MPP\\AssemblyBrowserLab\\AssemblyBrowserLib\\AssemblyBrowserLib.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\shell\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\shell\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
