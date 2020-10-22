@@ -15,34 +15,33 @@ namespace FakerLib.FakerUtil
         private Random rand = new Random();
         
 
-        public T Create<T>() // публичный метод для пользователя
+        public T Create<T>() 
         {
             return (T)Create(typeof(T));
         }
        
 
-        // Процедура создания и инициализации объекта.
-        public object Create(Type objectType) // метод для внутреннего использования
-        {
+         internal object Create(Type objectType) 
+         {         
            
-            // Если класс системный (int,float,string ...), то сгенерируется подходящее значение.
-            // Если генератор не найден, сгенерируется значение по умолчанию (0 или null).
-            if (objectType.FullName.StartsWith("System."))
+            if (generator.GetGenerator(objectType)!=null)
             {
-                return CreateSysObject(objectType);
+                return generator.GenerateValue(new GeneratorContext(rand, objectType, this));
             }
 
             else
             {
                 // Если в стеке уже встрчался обьект с таким типом, то 
-                // объект получает значение по умолчанию (0 или null)/
+                // объект получает значение по умолчанию (0 или null)
                 if (!cycleStack.Contains(objectType))
                 {
                     cycleStack.Push(objectType);
                     object currentObject = CreateObject(objectType);
-
-                    FillFields(currentObject);
-                    FillProperties(currentObject);
+                    if (currentObject!=null)
+                    {
+                        FillFields(currentObject);
+                        FillProperties(currentObject);
+                    }
                     cycleStack.Pop();
                     return currentObject;
                 }
@@ -54,12 +53,6 @@ namespace FakerLib.FakerUtil
 
         }
 
-
-        private object CreateSysObject(Type type) {
-            return generator.GenerateValue(new GeneratorContext(rand, type, this));
-        }
-
-        
         private object CreateObject(Type objectType) {
 
             object currentObject = GetDefaultValue(objectType);
@@ -70,32 +63,34 @@ namespace FakerLib.FakerUtil
                 //Выбираем конструктор с max кол-вом праметров
                 ConstructorInfo constructorInfo = ChooseConstructor(constructorsInfo);
 
-                //Параметры конструктора
-                ParameterInfo[] paramsInfo = constructorInfo.GetParameters();
-
-                Object[] constructorParams = new Object[paramsInfo.Length];
-
-                Type paramType;
-
-                for (int i = 0; i < constructorParams.Length; i++)
+                if (constructorInfo != null)
                 {
-                    paramType = paramsInfo[i].ParameterType;
+                    //Параметры конструктора
+                    ParameterInfo[] paramsInfo = constructorInfo.GetParameters();
 
-                    //Если параметр класс и не потомок System 
-                    if (paramType.IsClass && !paramType.FullName.StartsWith("System."))
+                    Object[] constructorParams = new Object[paramsInfo.Length];
+
+                    Type paramType;
+
+                    for (int i = 0; i < constructorParams.Length; i++)
                     {
-                        //рекурсивно создаем обьект
-                        constructorParams[i]=Create(paramType);
-                    }
+                        paramType = paramsInfo[i].ParameterType;
 
+                        constructorParams[i] = Create(paramType);
+
+                    }
+                    try
+                    {
+                        currentObject = constructorInfo.Invoke(constructorParams);
+                    }
+                    catch
+                    {
+                        throw new Exception("Error: Invoke(constructorParams).");
+                    }
                 }
-                try
+                else 
                 {
-                    currentObject = constructorInfo.Invoke(constructorParams);
-                }
-                catch
-                {
-                    throw new Exception("Error: Invoke(constructorParams).");
+                    currentObject = null;
                 }
 
             }
@@ -107,12 +102,17 @@ namespace FakerLib.FakerUtil
          * с большим числом параметров*/
         private ConstructorInfo ChooseConstructor(ConstructorInfo[] constructorsInfo) 
         {
-            ConstructorInfo maxParamConstructor = constructorsInfo[0];
-            //ищем консруткор с максимальным кол-вом параметров
-            for (int i=0; i<constructorsInfo.Length;i++)
+            ConstructorInfo maxParamConstructor = null;
+            if (constructorsInfo.Length != 0)
             {
-                if (constructorsInfo[i].GetParameters().Length > maxParamConstructor.GetParameters().Length) {
-                    maxParamConstructor = constructorsInfo[i];
+                maxParamConstructor = constructorsInfo[0];
+                //ищем консруткор с максимальным кол-вом параметров
+                for (int i = 0; i < constructorsInfo.Length; i++)
+                {
+                    if (constructorsInfo[i].GetParameters().Length > maxParamConstructor.GetParameters().Length)
+                    {
+                        maxParamConstructor = constructorsInfo[i];
+                    }
                 }
             }
             return maxParamConstructor;
@@ -126,16 +126,9 @@ namespace FakerLib.FakerUtil
             FieldInfo[] fields = currentObject.GetType().GetFields();
             foreach (FieldInfo fieledInfo in fields)
             {
-
-                if (fieledInfo.IsPublic  && fieledInfo.FieldType.IsClass && !fieledInfo.FieldType.FullName.StartsWith("System."))
+                if (fieledInfo.IsPublic)
                 {
-                    //рекурсивно создаем обьект
-                    Create(fieledInfo.FieldType);
-                }
-
-                else if (fieledInfo.IsPublic)
-                { 
-                     fieledInfo.SetValue(currentObject,generator.GenerateValue(new GeneratorContext(rand,fieledInfo.FieldType, this)));
+                    fieledInfo.SetValue(currentObject, Create(fieledInfo.FieldType));
                 }
             }
         }
@@ -147,15 +140,9 @@ namespace FakerLib.FakerUtil
             PropertyInfo[] properties = currentObject.GetType().GetProperties();
             foreach (PropertyInfo propertyInfo in properties)
             {
-               
-                if (propertyInfo.CanWrite && propertyInfo.PropertyType.IsClass && !propertyInfo.PropertyType.FullName.StartsWith("System."))
+                if (propertyInfo.CanWrite)
                 {
-                    //рекурсивно создаем обьект
-                    Create(propertyInfo.PropertyType);
-                }
-                else if (propertyInfo.CanWrite)
-                {
-                    propertyInfo.SetValue(currentObject, generator.GenerateValue(new GeneratorContext(rand, propertyInfo.PropertyType, this)));
+                    propertyInfo.SetValue(currentObject, Create(propertyInfo.PropertyType));
                 }
             }
         }

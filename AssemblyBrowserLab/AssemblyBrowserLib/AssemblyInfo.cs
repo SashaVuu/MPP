@@ -14,5 +14,7 @@ namespace AssemblyBrowserLib.AssemblyStructureUtil
             Assembly loadedAssembly = Assembly.LoadFrom(path);
             assemblyStructure = new AssemblyStructure(loadedAssembly);
         }
+
+
     }
 }

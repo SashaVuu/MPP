@@ -14,9 +14,11 @@ namespace FakerLab
         static void Main(string[] args)
         {
             Faker faker = new Faker();
+            Book a = faker.Create<Book>();
+            MyStruct ss = faker.Create<MyStruct>();
+
             double d = faker.Create<double>();
             A b = faker.Create<A>();
-            Book a = faker.Create<Book>();
             Console.WriteLine(a.PageInst.Method());
             Console.WriteLine(a.Name);
             Console.WriteLine(a.Price);
@@ -27,7 +29,7 @@ namespace FakerLab
             Console.WriteLine(a.Color);
             Console.WriteLine(a.PageInst.About);
             Console.WriteLine(a.PageInst.SetStr);
-
+            
 
             Console.WriteLine(a.kek);
         }

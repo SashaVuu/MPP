@@ -7,6 +7,5 @@ namespace FakerLib.FakerUtil
     {
         T Create<T>();
 
-        object Create(Type type);
     }
 }

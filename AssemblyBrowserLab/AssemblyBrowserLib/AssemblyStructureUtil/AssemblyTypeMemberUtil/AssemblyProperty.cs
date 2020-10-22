@@ -16,10 +16,11 @@ namespace AssemblyBrowserLib.AssemblyStructureUtil.AssemblyTypeMemberUtil
             FullName = GetFullName();
         }
 
-
         protected override string GetFullName()
         {
-            string result = propertyInfo.PropertyType.Name + " " + Name;
+            string result = "p_"+AssemblyType.GetAccessModifiers(propertyInfo.PropertyType)+
+                            AssemblyType.GetAtributes(propertyInfo.PropertyType) 
+                            + propertyInfo.PropertyType.Name + " " + Name;
             return result;
         }
     }

@@ -1,4 +1,5 @@
 ﻿
+using FakerLib.FakerUtil;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace FakerLib.Generators
 
             for (int i=0;i<listSize;i++)
             {
-                list.Add(context.Faker.Create(paramType));
+                list.Add(((Faker)context.Faker).Create(paramType));
             }
             return list;
         }

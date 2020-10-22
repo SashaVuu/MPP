@@ -17,10 +17,11 @@ namespace AssemblyBrowserLib.AssemblyStructureUtil.AssemblyTypeMemberUtil
             FullName = GetFullName();
         }
 
-
         protected override string GetFullName()
         {
-            string result = fieldInfo.FieldType.Name + " " + Name;
+            string result = "f_"+AssemblyType.GetAccessModifiers(fieldInfo.FieldType) +
+                            AssemblyType.GetAtributes(fieldInfo.FieldType)
+                            + fieldInfo.FieldType.Name + " " + Name;
             return result;
         }
 

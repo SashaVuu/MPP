@@ -6,3 +6,4 @@ C:\Users\shell\Documents\GitHub\MPP\FakerLab\FakerLib\bin\Debug\netstandard2.0\F
 C:\Users\shell\Documents\GitHub\MPP\FakerLab\FakerLib\bin\Debug\netstandard2.0\FakerLib.pdb
 C:\Users\shell\Documents\GitHub\MPP\FakerLab\FakerLib\obj\Debug\netstandard2.0\FakerLib.dll
 C:\Users\shell\Documents\GitHub\MPP\FakerLab\FakerLib\obj\Debug\netstandard2.0\FakerLib.pdb
+C:\Users\shell\Documents\GitHub\MPP\FakerLab\FakerLib\obj\Debug\netstandard2.0\FakerLib.csprojAssemblyReference.cache

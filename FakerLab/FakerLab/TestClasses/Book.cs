@@ -12,6 +12,7 @@ namespace FakerLab.TestClasses
         public int Color;
         public List<int> list;
         public double kek;
+        public Time time;
 
         public Book(string name, int price, Page kek)
         {

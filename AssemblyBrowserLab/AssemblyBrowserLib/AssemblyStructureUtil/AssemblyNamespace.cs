@@ -21,5 +21,7 @@ namespace AssemblyBrowserLib.AssemblyStructureUtil
         {
             types.Add(new AssemblyType(type));
         }
+
+
     }
 }

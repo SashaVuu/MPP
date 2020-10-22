@@ -85,8 +85,9 @@ namespace FakerLib.FakerUtil
             return value;
         }
 
+
         //Получаем генератор подходящего типа
-        private IValueGenerator GetGenerator(Type valueType) 
+        public IValueGenerator GetGenerator(Type valueType) 
         {
             IValueGenerator resultGenerator = null;
             foreach (IValueGenerator generator in allGenerators) 

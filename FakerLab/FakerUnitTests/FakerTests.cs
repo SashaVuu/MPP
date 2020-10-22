@@ -119,7 +119,7 @@ namespace FakerUnitTests
         {
             A a = faker.Create<A>();
             Assert.AreNotEqual(null, a.aListListPage);
-            Assert.AreNotEqual(0, a.aInt);       
+            Assert.AreNotEqual(0, a.aInt); 
         }
 
         [TestMethod]
@@ -141,6 +141,22 @@ namespace FakerUnitTests
         {
             Uri uri = faker.Create<Uri>();
             Assert.AreNotEqual(null, uri);
+        }
+
+        [TestMethod]
+        public void StructTest()
+        {
+            MyStruct b = faker.Create<MyStruct>();
+            Assert.AreNotEqual(null, b);
+            Assert.AreNotEqual(0, b.a);
+        }
+
+
+        [TestMethod]
+        public void StructTest1()
+        {
+            BBBB b = faker.Create<BBBB>();
+            Assert.IsNull(b);
         }
 
 

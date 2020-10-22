@@ -1634,6 +1634,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
+      },
+      "AssemblyBrowserLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/AssemblyBrowserLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AssemblyBrowserLib.dll": {}
+        }
       }
     }
   },
@@ -5705,10 +5715,16 @@
         "system.xml.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
+    },
+    "AssemblyBrowserLib/1.0.0": {
+      "type": "project",
+      "path": "../AssemblyBrowserLib/AssemblyBrowserLib.csproj",
+      "msbuildProject": "../AssemblyBrowserLib/AssemblyBrowserLib.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "AssemblyBrowserLib >= 1.0.0",
       "MSTest.TestAdapter >= 2.1.0",
       "MSTest.TestFramework >= 2.1.0",
       "Microsoft.NET.Test.Sdk >= 16.5.0",
@@ -5740,7 +5756,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\shell\\Documents\\GitHub\\MPP\\AssemblyBrowserLab\\AssemblyBrowserLib\\AssemblyBrowserLib.csproj": {
+              "projectPath": "C:\\Users\\shell\\Documents\\GitHub\\MPP\\AssemblyBrowserLab\\AssemblyBrowserLib\\AssemblyBrowserLib.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
