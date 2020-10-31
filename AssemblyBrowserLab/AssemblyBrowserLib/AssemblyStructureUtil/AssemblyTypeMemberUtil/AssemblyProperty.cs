@@ -10,6 +10,9 @@ namespace AssemblyBrowserLib.AssemblyStructureUtil.AssemblyTypeMemberUtil
     {
         private PropertyInfo propertyInfo;
 
+        public string getAccessModifier;
+        public string setAccessModifier;
+
         public AssemblyProperty(PropertyInfo _propertyInfo)
         {
             propertyInfo = _propertyInfo;
@@ -19,8 +22,31 @@ namespace AssemblyBrowserLib.AssemblyStructureUtil.AssemblyTypeMemberUtil
 
         protected override string GetFullName()
         {
-            return Signature.GetPropertySignature(propertyInfo);
-        }
+            string result = "";
 
+            AccessModifier = AccessModifiers.GetAccessModifiers(propertyInfo.PropertyType);
+            result += AccessModifier;
+
+            DataAttribute= DataAttributes.GetDataAttributes(propertyInfo.PropertyType);
+            result += DataAttribute;
+
+            result += TypeName.GetTypeName(propertyInfo.PropertyType);
+            result += propertyInfo.Name + "{ ";
+
+            if (propertyInfo.CanRead)
+            {
+                getAccessModifier= AccessModifiers.GetAccessModifiers(propertyInfo.GetMethod) + "get; ";
+                result += getAccessModifier;
+            }
+            if (propertyInfo.CanWrite)
+            {
+                setAccessModifier= AccessModifiers.GetAccessModifiers(propertyInfo.SetMethod) + "set; ";
+                result +=setAccessModifier;
+            }
+
+            result += " }";
+            return result;
+        }
+        
     }
 }

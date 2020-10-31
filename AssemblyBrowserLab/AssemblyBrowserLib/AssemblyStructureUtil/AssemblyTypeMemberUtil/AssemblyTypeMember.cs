@@ -10,6 +10,10 @@ namespace AssemblyBrowserLib.AssemblyStructureUtil.AssemblyTypeMemberUtil
         public string Name { get; set; } 
         public string FullName { get; set; }
 
+        public string AccessModifier;
+
+        public string DataAttribute;
+
         protected abstract string GetFullName();
 
     }

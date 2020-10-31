@@ -15,9 +15,19 @@ namespace AssemblyBrowserLib.AssemblyStructureUtil.AssemblyTypeMemberUtil
             FullName = GetFullName();
         }
 
+
         protected override string GetFullName()
         {
-            string result = Signature.GetFieldSignature(fieldInfo);
+            string result = "";
+
+            AccessModifier= AccessModifiers.GetAccessModifiers(fieldInfo);
+            result += AccessModifier;
+            DataAttribute = DataAttributes.GetDataAttributes(fieldInfo.FieldType);
+            result += DataAttribute;
+
+            result += TypeName.GetTypeName(fieldInfo.FieldType);
+            result += fieldInfo.Name;
+
             return result;
         }
 

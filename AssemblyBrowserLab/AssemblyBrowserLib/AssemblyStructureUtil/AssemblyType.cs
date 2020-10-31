@@ -16,6 +16,12 @@ namespace AssemblyBrowserLib.AssemblyStructureUtil
 
         public List<AssemblyTypeMember> typeMembers { get; set; }
 
+        public string AccessModifier;
+
+        public string DataAttribute;
+
+        public string _TypeOfDataType;
+
         public AssemblyType(Type type)
         {
             typeMembers = new List<AssemblyTypeMember>();
@@ -57,7 +63,20 @@ namespace AssemblyBrowserLib.AssemblyStructureUtil
 
         private string GetFullName(Type type)
         {
-            return Signature.GetTypeSignature(type);
+            string result = "";
+
+            AccessModifier= AccessModifiers.GetAccessModifiers(type);
+            result += AccessModifier;
+
+            DataAttribute= DataAttributes.GetDataAttributes(type);
+            result += DataAttribute;
+
+            _TypeOfDataType= TypeOfDataType.GetTypeOfDataType(type);
+            result += _TypeOfDataType;
+
+            result += TypeName.GetTypeName(type);
+
+            return result;
         }
 
         

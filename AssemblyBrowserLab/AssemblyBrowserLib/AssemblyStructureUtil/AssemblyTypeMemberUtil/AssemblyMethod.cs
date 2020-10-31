@@ -16,7 +16,32 @@ namespace AssemblyBrowserLib.AssemblyStructureUtil.AssemblyTypeMemberUtil
 
         protected override string GetFullName()
         {
-            return Signature.GetMethodSignature(methodInfo);
+            string result = "";
+
+            AccessModifier = AccessModifiers.GetAccessModifiers(methodInfo);
+            result += AccessModifier;
+
+            DataAttribute= DataAttributes.GetDataAttributes(methodInfo);
+            result += DataAttribute;
+
+            result += TypeName.GetTypeName(methodInfo.ReturnType);    
+            
+            result += methodInfo.Name;                                          
+            result += "( ";
+
+            ParameterInfo[] parametrs = methodInfo.GetParameters();
+            for (int i = 0; i < parametrs.Length; i++)
+            {
+                if (i != 0)
+                {
+                    result += ", ";
+                }
+                result += TypeName.GetTypeName(parametrs[i].ParameterType) + " " + parametrs[i].Name;
+            }
+
+            result += " )";
+
+            return result;
         }
     }
 }
