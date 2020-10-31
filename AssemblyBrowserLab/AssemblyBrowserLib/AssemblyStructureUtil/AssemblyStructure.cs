@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace AssemblyBrowserLib.AssemblyStructureUtil
@@ -9,38 +10,33 @@ namespace AssemblyBrowserLib.AssemblyStructureUtil
     public class AssemblyStructure
     {
         public string FullName { get; set; } 
-        public List<AssemblyNamespace> nameSpaces = new List<AssemblyNamespace>();
 
+        public List<AssemblyNamespace> nameSpaces = new List<AssemblyNamespace>();
 
         public AssemblyStructure(Assembly assembly)
         {
             Type[] types = null;
+            //Когда грузим консоль может вернуть nulls
             try
             {
-                types = assembly.GetTypes();
+                //Убираем классы и тд сгенерированные компилятором
+                types = assembly.GetTypes().Where(item => Attribute.GetCustomAttribute(item, typeof(CompilerGeneratedAttribute)) == null).ToArray();
             }
             catch(ReflectionTypeLoadException e)
             {
-                /*Type[] t = e.Types;
-                int k = 0;
-                for (int i=0;i<=t.Length;i++)
-                {
-                    if (t[i] != null)
-                    {
-                        types[k] = t[i];
-                        k++;
-                    }
-                }*/
-                types = e.Types.Where(t => t != null).ToArray();
-
+               types = e.Types.Where(t => t != null).ToArray();
             }
+
+            //Проходимся по всем классам,структурам и тд, что бы сформировать namespaces
             for (int i=0;i<types.Length;i++) 
             {
                 AssemblyNamespace ass = GetOrAddNamespace(types[i]);
                 ass.AddType(types[i]);
             }
+
         }
 
+        //Создаем список namespaces
         private AssemblyNamespace GetOrAddNamespace(Type type)
         {
             AssemblyNamespace result = null;
@@ -52,12 +48,14 @@ namespace AssemblyBrowserLib.AssemblyStructureUtil
                     result=nameSpace;
                 }
             }
+
             if (result == null) 
             {
                 result = new AssemblyNamespace(type.Namespace);
                 nameSpaces.Add(result);
             }
             return result;
+
         }
 
 

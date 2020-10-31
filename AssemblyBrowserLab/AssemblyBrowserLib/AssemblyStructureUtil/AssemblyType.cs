@@ -1,6 +1,9 @@
 ﻿using AssemblyBrowserLib.AssemblyStructureUtil.AssemblyTypeMemberUtil;
+using AssemblyBrowserLib.SignatureUtil;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 
 namespace AssemblyBrowserLib.AssemblyStructureUtil
@@ -13,69 +16,51 @@ namespace AssemblyBrowserLib.AssemblyStructureUtil
 
         public List<AssemblyTypeMember> typeMembers { get; set; }
 
-
         public AssemblyType(Type type)
         {
             typeMembers = new List<AssemblyTypeMember>();
             Name = type.Name;
             FullName = GetFullName(type);
             FillListOfTypeMembers(type);
-    
         }
+
+        //Заполняем список с полями,методами,свойствами
         private void FillListOfTypeMembers(Type type) 
         {
-            foreach (var fieldInfo in type.GetFields())
+            var flags = BindingFlags.Instance |
+                        BindingFlags.Static |
+                        BindingFlags.NonPublic |
+                        BindingFlags.Public ;
+
+            //BindingFlags.DeclaredOnly
+     
+            FieldInfo[] fields = type.GetFields(flags).Where( item => Attribute.GetCustomAttribute(item, typeof(CompilerGeneratedAttribute) ) == null).ToArray();
+            foreach (var fieldInfo in fields)
             {
                 typeMembers.Add(new AssemblyField(fieldInfo));
             }
 
-            foreach (var properyInfo in type.GetProperties())
+            PropertyInfo[] properties = type.GetProperties(flags).Where(item => Attribute.GetCustomAttribute(item, typeof(CompilerGeneratedAttribute)) == null).ToArray();
+            foreach (var properyInfo in properties)
             {
                 typeMembers.Add(new AssemblyProperty(properyInfo));
             }
 
-            foreach (var methodInfo in type.GetMethods())
+            MethodInfo[] methods = type.GetMethods(flags).Where(item => Attribute.GetCustomAttribute(item, typeof(CompilerGeneratedAttribute)) == null).ToArray();
+            foreach (var methodInfo in type.GetMethods(flags))
             {
                  typeMembers.Add(new AssemblyMethod(methodInfo));
                 
             }
+
         }
 
         private string GetFullName(Type type)
         {
-            string result = GetAccessModifiers(type)+ GetAtributes(type)+ GetTypeOfClass(type)+type.Name;
-            return result;
+            return Signature.GetTypeSignature(type);
         }
 
-        public static string GetAccessModifiers(Type type)
-        {
-            string result = "";
-            if (type.IsPublic) { result = "public "; }
-            if (type.IsNestedPrivate || type.IsNotPublic) { result = "private "; }
-            if (type.IsNestedFamily) { result = "protected "; }
-            if (type.IsNestedAssembly) { result = "internal "; }
-            if (type.IsNestedFamORAssem) { result = "protected internal "; }
-            return result;
-        }
+        
 
-        public static string GetAtributes(Type type)
-        {
-            string result = "";
-            if (type.IsAbstract) { result = "abstract "; }
-            if (type.IsSealed) { result = "sealed "; }
-            if (type.IsAbstract && type.IsSealed) { result = "static "; }
-            return result;
-
-        }
-
-        private string GetTypeOfClass(Type type)
-        {
-            string result = "";
-            if (type.IsClass) { result = "class "; }
-            if (type.IsEnum) { result = "enum "; }
-            if (type.IsInterface) { result = "interface "; }
-            if (type.BaseType == typeof(MulticastDelegate)) { result = "delegate "; }
-            return result;
-        }
     }
 }

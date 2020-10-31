@@ -10,7 +10,6 @@ namespace AssemblyBrowserLib.AssemblyStructureUtil
         public string FullName { get; set; }
         public List<AssemblyType> types { get; set; }
 
-
         public AssemblyNamespace(string typeName)
         {
             types = new List<AssemblyType>();

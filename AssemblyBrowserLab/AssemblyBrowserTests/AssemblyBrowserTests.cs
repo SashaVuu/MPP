@@ -1,5 +1,7 @@
 using AssemblyBrowserLib.AssemblyStructureUtil;
+using AssemblyBrowserLib.AssemblyStructureUtil.AssemblyTypeMemberUtil;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Reflection;
 
 namespace AssemblyBrowserTests
 {
@@ -7,13 +9,16 @@ namespace AssemblyBrowserTests
     public class AssemblyBrowserTests
     {
         AssemblyStructure assemblyStructure;
+        AssemblyNamespace testNamespace;
+        AssemblyType testClass;
 
         [TestInitialize]
         public void Setup()
         {
-            //Специально созданная сборка для тетстирования - "TestAssemblyLib.dll"
-            AssemblyInfo.LoadAssemblyByPath("C:/Users/shell/source/repos/AssemblyBrowserLab/AssemblyBrowserLib/bin/Debug/netstandard2.0/AssemblyBrowserLib.dll");
+            AssemblyInfo.LoadAssemblyByPath("C:/Users/shell/Documents/GitHub/MPP/AssemblyBrowserLab/AssemblyBrowserLib/bin/Debug/netstandard2.0/AssemblyBrowserLib.dll");
             assemblyStructure=AssemblyInfo.assemblyStructure;
+            testNamespace = assemblyStructure.nameSpaces.Find(item => item.FullName.Contains("Tests"));
+            testClass = testNamespace.types[0];
         }
 
         //----------------AccessModifiersTest----------------
@@ -21,13 +26,15 @@ namespace AssemblyBrowserTests
         [TestMethod]
         public void PublicFieldModifierTest()
         {
-            
+            AssemblyTypeMember field = testClass.typeMembers.Find(item => item.FullName.Contains("publicBoolField"));
+            Assert.AreEqual("public Boolean publicBoolField", field.FullName);
         }
 
         [TestMethod]
-        public void PrivtaeFieldModifierTest()
+        public void PrivateFieldModifierTest()
         {
-
+            AssemblyTypeMember field = testClass.typeMembers.Find(item => item.FullName.Contains("privateIntField"));
+            Assert.AreEqual("private Int32 privateIntField", field.FullName);
         }
 
         [TestMethod]
@@ -58,10 +65,11 @@ namespace AssemblyBrowserTests
         //-------------Correct Structure------------------
 
         [TestMethod]
-        public void AmountOfNamespacesInAssemblyTest()
+        public void AmountOfNamespaces()
         {
-
+            Assert.AreEqual(3, assemblyStructure.nameSpaces.Count);
         }
+
         [TestMethod]
         public void AmountOfTypesInNamespaceTest()
         {

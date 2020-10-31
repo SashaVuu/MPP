@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using AssemblyBrowserLib.SignatureUtil;
 using System.Reflection;
-using System.Text;
 
 namespace AssemblyBrowserLib.AssemblyStructureUtil.AssemblyTypeMemberUtil
 {
@@ -18,16 +16,7 @@ namespace AssemblyBrowserLib.AssemblyStructureUtil.AssemblyTypeMemberUtil
 
         protected override string GetFullName()
         {
-            string parametrs = "()";
-
-            string result="m_ ";
-            if (methodInfo.IsStatic) { result += "static "; }
-            if (methodInfo.IsPublic) { result += "public "; }
-            else { result += "private "; }
-            if (methodInfo.IsAbstract) { result += "abstract "; }
-            result += methodInfo.ReturnType.Name+" " +methodInfo.Name + parametrs;
-
-            return result;
+            return Signature.GetMethodSignature(methodInfo);
         }
     }
 }

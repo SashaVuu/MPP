@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AssemblyBrowserLib.AssemblyStructureUtil
 {
-    public class AssemblyInfo
+    public static class AssemblyInfo
     {
         public static AssemblyStructure assemblyStructure;
 

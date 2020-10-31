@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AssemblyBrowserLib.SignatureUtil;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
@@ -18,10 +19,8 @@ namespace AssemblyBrowserLib.AssemblyStructureUtil.AssemblyTypeMemberUtil
 
         protected override string GetFullName()
         {
-            string result = "p_"+AssemblyType.GetAccessModifiers(propertyInfo.PropertyType)+
-                            AssemblyType.GetAtributes(propertyInfo.PropertyType) 
-                            + propertyInfo.PropertyType.Name + " " + Name;
-            return result;
+            return Signature.GetPropertySignature(propertyInfo);
         }
+
     }
 }

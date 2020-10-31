@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using AssemblyBrowserLib.SignatureUtil;
 using System.Reflection;
-using System.Text;
 
 namespace AssemblyBrowserLib.AssemblyStructureUtil.AssemblyTypeMemberUtil
 {
@@ -19,12 +17,9 @@ namespace AssemblyBrowserLib.AssemblyStructureUtil.AssemblyTypeMemberUtil
 
         protected override string GetFullName()
         {
-            string result = "f_"+AssemblyType.GetAccessModifiers(fieldInfo.FieldType) +
-                            AssemblyType.GetAtributes(fieldInfo.FieldType)
-                            + fieldInfo.FieldType.Name + " " + Name;
+            string result = Signature.GetFieldSignature(fieldInfo);
             return result;
         }
-
 
     }
 }
