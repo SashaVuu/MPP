@@ -35,13 +35,13 @@ namespace AssemblyBrowserLib.AssemblyStructureUtil.AssemblyTypeMemberUtil
 
             if (propertyInfo.CanRead)
             {
-                getAccessModifier= AccessModifiers.GetAccessModifiers(propertyInfo.GetMethod) + "get; ";
-                result += getAccessModifier;
+                getAccessModifier= AccessModifiers.GetAccessModifiers(propertyInfo.GetMethod);
+                result += getAccessModifier + "get; ";
             }
             if (propertyInfo.CanWrite)
             {
-                setAccessModifier= AccessModifiers.GetAccessModifiers(propertyInfo.SetMethod) + "set; ";
-                result +=setAccessModifier;
+                setAccessModifier= AccessModifiers.GetAccessModifiers(propertyInfo.SetMethod);
+                result +=setAccessModifier + "set; ";
             }
 
             result += " }";

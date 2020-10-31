@@ -22,44 +22,59 @@ namespace AssemblyBrowserTests
         }
 
         //----------------AccessModifiersTest----------------
-
+        
+        //--------Field
         [TestMethod]
         public void PublicFieldModifierTest()
         {
             AssemblyTypeMember field = testClass.typeMembers.Find(item => item.FullName.Contains("publicBoolField"));
-            Assert.AreEqual("public Boolean publicBoolField", field.FullName);
+            Assert.AreEqual("public ", field.AccessModifier);
         }
 
         [TestMethod]
         public void PrivateFieldModifierTest()
         {
             AssemblyTypeMember field = testClass.typeMembers.Find(item => item.FullName.Contains("privateIntField"));
-            Assert.AreEqual("private Int32 privateIntField", field.FullName);
+            Assert.AreEqual("private ", field.AccessModifier);
         }
 
         [TestMethod]
-        public void PublicPropertyModifierTest()
+        public void ProtectedFieldModifierTest()
         {
-
+            AssemblyTypeMember field = testClass.typeMembers.Find(item => item.FullName.Contains("protectedStringField"));
+            Assert.AreEqual("protected ", field.AccessModifier);
         }
 
-        [TestMethod]
-        public void PublicClassModifierTest()
-        {
 
+        //--------Property
+        [TestMethod]
+        public void GetSetPropertyModifierTest()
+        {
+            AssemblyProperty property = (AssemblyProperty)testClass.typeMembers.Find(item => item.FullName.Contains("Name"));
+            Assert.AreEqual("public ", property.getAccessModifier);
+            Assert.AreEqual("private ", property.setAccessModifier);
+        }
+
+
+        //--------Method
+        [TestMethod]
+        public void InternalMethodModifierTest()
+        {
+            AssemblyTypeMember method= testClass.typeMembers.Find(item => item.FullName.Contains("internalVoidMthod"));
+            Assert.AreEqual("internal ", method.AccessModifier);
+ 
         }
 
         [TestMethod]
         public void PrivateMethodModifierTest()
         {
-
+            AssemblyTypeMember method = testClass.typeMembers.Find(item => item.FullName.Contains("privateIntMethod"));
+            Assert.AreEqual("private ", method.AccessModifier);
         }
 
-        [TestMethod]
-        public void PublicStaticMethodModifierTest()
-        {
 
-        }
+        //-------------DataAttributesTests----------------
+
 
 
         //-------------Correct Structure------------------
@@ -67,7 +82,7 @@ namespace AssemblyBrowserTests
         [TestMethod]
         public void AmountOfNamespaces()
         {
-            Assert.AreEqual(3, assemblyStructure.nameSpaces.Count);
+           // Assert.AreEqual(3, assemblyStructure.nameSpaces.Count);
         }
 
         [TestMethod]
@@ -80,6 +95,15 @@ namespace AssemblyBrowserTests
         public void AmountOfTypeMembersInTypeTest()
         {
 
+        }
+
+        [TestMethod]
+        public void MethodParamsTests()
+        {
+            AssemblyMethod method = (AssemblyMethod)testClass.typeMembers.Find(item => item.FullName.Contains("privateIntMethod"));
+            Assert.AreEqual(2, method.paramsType.Count);
+            Assert.AreEqual(true, method.paramsType.Contains("Int32 "));
+            Assert.AreEqual(true, method.paramsType.Contains("Boolean "));
         }
 
     }

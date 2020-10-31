@@ -1,4 +1,5 @@
 ﻿using AssemblyBrowserLib.SignatureUtil;
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace AssemblyBrowserLib.AssemblyStructureUtil.AssemblyTypeMemberUtil
@@ -7,8 +8,11 @@ namespace AssemblyBrowserLib.AssemblyStructureUtil.AssemblyTypeMemberUtil
     {
         private MethodInfo methodInfo;
 
+        public List<string> paramsType;
+
         public AssemblyMethod(MethodInfo _methodInfo)
         {
+            paramsType= new List<string>();
             methodInfo = _methodInfo;
             Name = _methodInfo.Name;
             FullName = GetFullName();
@@ -30,15 +34,19 @@ namespace AssemblyBrowserLib.AssemblyStructureUtil.AssemblyTypeMemberUtil
             result += "( ";
 
             ParameterInfo[] parametrs = methodInfo.GetParameters();
-            for (int i = 0; i < parametrs.Length; i++)
-            {
-                if (i != 0)
-                {
-                    result += ", ";
-                }
-                result += TypeName.GetTypeName(parametrs[i].ParameterType) + " " + parametrs[i].Name;
-            }
 
+            if (parametrs.Length != 0)
+            {
+                for (int i = 0; i < parametrs.Length; i++)
+                {
+                    if (i != 0)
+                    {
+                        result += ", ";
+                    }
+                    paramsType.Add(TypeName.GetTypeName(parametrs[i].ParameterType));
+                    result += paramsType[i] + parametrs[i].Name;
+                }
+            }
             result += " )";
 
             return result;

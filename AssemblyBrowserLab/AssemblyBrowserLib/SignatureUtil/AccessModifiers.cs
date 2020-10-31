@@ -20,7 +20,7 @@ namespace AssemblyBrowserLib.SignatureUtil
             else if (type.IsNestedAssembly) { result += "internal "; }
             else if (type.IsNestedFamily) { result += "protected "; }
             else if (type.IsNestedPublic) { result += "public "; }
-            else { result += "public "; }
+            //else { result += "public "; }
 
             return result;
         }
