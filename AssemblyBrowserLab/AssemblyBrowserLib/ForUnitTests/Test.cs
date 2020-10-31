@@ -34,7 +34,9 @@ namespace AssemblyBrowserLib.ForUnitTests
 
         //Methods
         private int privateIntMethod( int a, bool b ) { return 1; }
-        internal void internalVoidMthod() { } 
+        internal void internalVoidMethod() { }
+
+        static void staticVoidMethod() { }
 
 
 

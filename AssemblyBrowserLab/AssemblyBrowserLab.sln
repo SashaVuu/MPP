@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssemblyBrowserLib", "Assem
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssemblyBrowserTests", "AssemblyBrowserTests\AssemblyBrowserTests.csproj", "{F0838197-3539-4F5D-9A7E-6E23A74D2575}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfAssemblyBrowserApp", "WpfAssemblyBrowserApp\WpfAssemblyBrowserApp.csproj", "{D5CAC1CB-F7E7-44CB-A63A-405758867D19}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApplication", "WpfApplication\WpfApplication.csproj", "{D81B6E3B-56F0-4B07-AA6C-8E0E04492B8C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{F0838197-3539-4F5D-9A7E-6E23A74D2575}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0838197-3539-4F5D-9A7E-6E23A74D2575}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0838197-3539-4F5D-9A7E-6E23A74D2575}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D5CAC1CB-F7E7-44CB-A63A-405758867D19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D5CAC1CB-F7E7-44CB-A63A-405758867D19}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D5CAC1CB-F7E7-44CB-A63A-405758867D19}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D5CAC1CB-F7E7-44CB-A63A-405758867D19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D81B6E3B-56F0-4B07-AA6C-8E0E04492B8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D81B6E3B-56F0-4B07-AA6C-8E0E04492B8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D81B6E3B-56F0-4B07-AA6C-8E0E04492B8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D81B6E3B-56F0-4B07-AA6C-8E0E04492B8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -19,8 +19,8 @@ namespace AssemblyBrowserLib.SignatureUtil
             if (type.IsNestedPrivate) { result += "private "; }
             else if (type.IsNestedAssembly) { result += "internal "; }
             else if (type.IsNestedFamily) { result += "protected "; }
-            else if (type.IsNestedPublic) { result += "public "; }
-            //else { result += "public "; }
+            else if (type.IsNestedPublic||type.IsPublic) { result += "public "; }
+            else if (type.IsNotPublic){ result += "not public "; }
 
             return result;
         }

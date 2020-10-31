@@ -12,13 +12,19 @@ namespace AssemblyBrowserTests
         AssemblyNamespace testNamespace;
         AssemblyType testClass;
 
+        AssemblyType testAbstractClass;          //Для проверки на статические методы
+
+
         [TestInitialize]
         public void Setup()
         {
             AssemblyInfo.LoadAssemblyByPath("C:/Users/shell/Documents/GitHub/MPP/AssemblyBrowserLab/AssemblyBrowserLib/bin/Debug/netstandard2.0/AssemblyBrowserLib.dll");
             assemblyStructure=AssemblyInfo.assemblyStructure;
             testNamespace = assemblyStructure.nameSpaces.Find(item => item.FullName.Contains("Tests"));
-            testClass = testNamespace.types[0];
+            testClass = testNamespace.types.Find(item => item.FullName.Contains("Test"));
+
+            AssemblyNamespace testNamespace1 = assemblyStructure.nameSpaces.Find(item => item.FullName.Contains("AssemblyBrowserLib.AssemblyStructureUtil.AssemblyTypeMemberUtil"));
+            testAbstractClass = testNamespace1.types.Find(item => item.FullName.Contains("TypeMember"));
         }
 
         //----------------AccessModifiersTest----------------
@@ -60,7 +66,7 @@ namespace AssemblyBrowserTests
         [TestMethod]
         public void InternalMethodModifierTest()
         {
-            AssemblyTypeMember method= testClass.typeMembers.Find(item => item.FullName.Contains("internalVoidMthod"));
+            AssemblyTypeMember method= testClass.typeMembers.Find(item => item.FullName.Contains("internalVoidMethod"));
             Assert.AreEqual("internal ", method.AccessModifier);
  
         }
@@ -72,29 +78,50 @@ namespace AssemblyBrowserTests
             Assert.AreEqual("private ", method.AccessModifier);
         }
 
+        //-------DataType
+        [TestMethod]
+        public void PublicClassTest()
+        {
+            Assert.AreEqual("public ", testClass.AccessModifier);
+        }
 
-        //-------------DataAttributesTests----------------
 
 
+
+        //-----------DataAttributeTests-------------
+        [TestMethod]
+        public void AbstractClassModifierTest()
+        {
+            Assert.AreEqual("abstract ", testAbstractClass.DataAttribute);
+        }
+
+        [TestMethod]
+        public void StaticMethodModifierTest()
+        {
+            AssemblyTypeMember method = testClass.typeMembers.Find(item => item.FullName.Contains("staticVoidMethod"));
+            Assert.AreEqual("static ", method.DataAttribute);
+        }
+      
 
         //-------------Correct Structure------------------
 
         [TestMethod]
         public void AmountOfNamespaces()
         {
-           // Assert.AreEqual(3, assemblyStructure.nameSpaces.Count);
+            Assert.AreEqual(4, assemblyStructure.nameSpaces.Count);
         }
 
         [TestMethod]
         public void AmountOfTypesInNamespaceTest()
         {
-
+            Assert.AreEqual(1, testNamespace.types.Count);
         }
 
         [TestMethod]
         public void AmountOfTypeMembersInTypeTest()
         {
-
+            // 9 real + 4 (get/set) + 6 from Object
+            Assert.AreEqual(19, testClass.typeMembers.Count);
         }
 
         [TestMethod]

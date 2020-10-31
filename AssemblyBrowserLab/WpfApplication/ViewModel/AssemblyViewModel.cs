@@ -3,9 +3,9 @@ using Microsoft.Win32;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using WpfAssemblyBrowserApp.Command;
+using WpfApplication.Command;
 
-namespace WpfAssemblyBrowserApp.ViewModel
+namespace WpfApplication.ViewModel
 {
     class AssemblyViewModel : INotifyPropertyChanged
     {
