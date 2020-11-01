@@ -39,7 +39,7 @@ namespace AssemblyBrowserLib.AssemblyStructureUtil
                         BindingFlags.Public ;
 
             //BindingFlags.DeclaredOnly
-     
+
             FieldInfo[] fields = type.GetFields(flags).Where( item => Attribute.GetCustomAttribute(item, typeof(CompilerGeneratedAttribute) ) == null).ToArray();
             foreach (var fieldInfo in fields)
             {

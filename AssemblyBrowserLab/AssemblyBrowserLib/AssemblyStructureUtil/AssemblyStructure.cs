@@ -16,7 +16,7 @@ namespace AssemblyBrowserLib.AssemblyStructureUtil
         public AssemblyStructure(Assembly assembly)
         {
             Type[] types = null;
-            //Когда грузим консоль может вернуть nulls
+
             try
             {
                 //Убираем классы и тд сгенерированные компилятором
