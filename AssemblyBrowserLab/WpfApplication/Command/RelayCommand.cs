@@ -29,9 +29,7 @@ namespace WpfApplication.Command
             return this.canExecute == null || this.canExecute(parameter);
         }
 
-        // Собственно выполняет логику команды
-        //Для его выполнения в конструкторе команды передается делегат типа Action<object>. 
-        //При этом класс команды не знает какое именно действие будет выполняться.
+        
         public void Execute(object parameter)
         {
             this.execute(parameter);

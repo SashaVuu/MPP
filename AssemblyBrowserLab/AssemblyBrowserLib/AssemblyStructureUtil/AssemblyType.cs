@@ -40,20 +40,20 @@ namespace AssemblyBrowserLib.AssemblyStructureUtil
 
             //BindingFlags.DeclaredOnly
 
-            FieldInfo[] fields = type.GetFields(flags).Where( item => Attribute.GetCustomAttribute(item, typeof(CompilerGeneratedAttribute) ) == null).ToArray();
+            FieldInfo[] fields = type.GetFields(flags).Where( item => Attribute.GetCustomAttribute(item, typeof(CompilerGeneratedAttribute) ) == null && !item.IsSpecialName).ToArray();
             foreach (var fieldInfo in fields)
             {
                 typeMembers.Add(new AssemblyField(fieldInfo));
             }
 
-            PropertyInfo[] properties = type.GetProperties(flags).Where(item => Attribute.GetCustomAttribute(item, typeof(CompilerGeneratedAttribute)) == null).ToArray();
+            PropertyInfo[] properties = type.GetProperties(flags).Where(item => Attribute.GetCustomAttribute(item, typeof(CompilerGeneratedAttribute)) == null && !item.IsSpecialName).ToArray();
             foreach (var properyInfo in properties)
             {
                 typeMembers.Add(new AssemblyProperty(properyInfo));
             }
 
-            MethodInfo[] methods = type.GetMethods(flags).Where(item => Attribute.GetCustomAttribute(item, typeof(CompilerGeneratedAttribute)) == null).ToArray();
-            foreach (var methodInfo in type.GetMethods(flags))
+            MethodInfo[] methods = type.GetMethods(flags).Where(item => Attribute.GetCustomAttribute(item, typeof(CompilerGeneratedAttribute)) == null && !item.IsSpecialName).ToArray();
+            foreach (var methodInfo in methods)
             {
                  typeMembers.Add(new AssemblyMethod(methodInfo));
                 

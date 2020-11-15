@@ -19,7 +19,6 @@ namespace AssemblyBrowserLib.AssemblyStructureUtil
 
             try
             {
-                //Убираем классы и тд сгенерированные компилятором
                 types = assembly.GetTypes().Where(item => Attribute.GetCustomAttribute(item, typeof(CompilerGeneratedAttribute)) == null).ToArray();
             }
             catch(ReflectionTypeLoadException e)

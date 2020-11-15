@@ -12,7 +12,7 @@ namespace AssemblyBrowserTests
         AssemblyNamespace testNamespace;
         AssemblyType testClass;
 
-        AssemblyType testAbstractClass;          //Для проверки на статические методы
+        AssemblyType testAbstractClass;          
 
 
         [TestInitialize]
@@ -120,8 +120,8 @@ namespace AssemblyBrowserTests
         [TestMethod]
         public void AmountOfTypeMembersInTypeTest()
         {
-            // 9 real + 4 (get/set) + 6 from Object
-            Assert.AreEqual(19, testClass.typeMembers.Count);
+            // 9 real  + 6 from Object
+            Assert.AreEqual(15, testClass.typeMembers.Count);
         }
 
         [TestMethod]
