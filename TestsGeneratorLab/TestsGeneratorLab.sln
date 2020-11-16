@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsGeneratorLab", "TestsGeneratorLab\TestsGeneratorLab.csproj", "{E8C65ECA-B725-4395-BB83-A134DABABF89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestsGeneratorLab", "TestsGeneratorLab\TestsGeneratorLab.csproj", "{E8C65ECA-B725-4395-BB83-A134DABABF89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnitTests", "NUnitTests\NUnitTests.csproj", "{8AD3FFF5-7587-49C3-99EE-2C2AC8CEDB57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NUnitTests", "NUnitTests\NUnitTests.csproj", "{8AD3FFF5-7587-49C3-99EE-2C2AC8CEDB57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsGeneratorLib", "TestsGeneratorLib\TestsGeneratorLib.csproj", "{59A53DD9-579E-46E0-B144-433DACE11A95}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestGeneratorLib", "TestGeneratorLib\TestGeneratorLib.csproj", "{DDDB5E5D-2CA3-4F06-AC32-572786F54358}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{8AD3FFF5-7587-49C3-99EE-2C2AC8CEDB57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8AD3FFF5-7587-49C3-99EE-2C2AC8CEDB57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8AD3FFF5-7587-49C3-99EE-2C2AC8CEDB57}.Release|Any CPU.Build.0 = Release|Any CPU
-		{59A53DD9-579E-46E0-B144-433DACE11A95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{59A53DD9-579E-46E0-B144-433DACE11A95}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{59A53DD9-579E-46E0-B144-433DACE11A95}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{59A53DD9-579E-46E0-B144-433DACE11A95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDDB5E5D-2CA3-4F06-AC32-572786F54358}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDDB5E5D-2CA3-4F06-AC32-572786F54358}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDDB5E5D-2CA3-4F06-AC32-572786F54358}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDDB5E5D-2CA3-4F06-AC32-572786F54358}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
