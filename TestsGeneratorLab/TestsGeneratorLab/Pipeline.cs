@@ -1,0 +1,101 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
+using System.Threading.Tasks.Dataflow;
+using TestGeneratorLib;
+
+namespace TestsGeneratorLab
+{
+    public class Pipeline
+    {
+
+        private readonly PipelineConfiguration pipelineConfig;
+        public Pipeline(PipelineConfiguration PipelineConfig)
+        {
+            pipelineConfig = PipelineConfig;
+        }
+
+        //async - указывает, что данный метод может содержать одно или несколько выражений await.
+        public async Task Execute(List<string> filesPath,string outputPath)
+        {
+            
+            //Блок чтения из файла
+            //path,content
+            var readingBlock = new TransformBlock<string, string>(
+                async FilePath =>
+                {
+                    Console.WriteLine("File path:  "+ FilePath);
+                    using (StreamReader reader = new StreamReader(FilePath))
+                    {
+                        return await reader.ReadToEndAsync();
+                    }
+
+                },
+                new ExecutionDataflowBlockOptions { MaxDegreeOfParallelism = pipelineConfig.MaxReadingTasks }
+            );
+
+
+            //Блок создания теста
+            //code,tests
+            var generateTestClass = new TransformManyBlock<string, TestStructure>(
+                async Code =>
+                {
+                    Console.WriteLine("Generating tests... ");
+                    return await TestCreator.Generate(Code);
+                },
+                new ExecutionDataflowBlockOptions { MaxDegreeOfParallelism = pipelineConfig.MaxProcessingTasks }
+            );
+
+
+            //Блок записи теста в файл
+            //TestStructure
+            //Предоставляет блок потока данных, который вызывает предоставленный делегат Action<T>
+            //для каждого полученного элемента данных
+
+            var writeGeneratedFile = new ActionBlock<TestStructure>(
+                async testClass =>
+                {
+                    string fullpath = Path.Combine(outputPath, testClass.TestName);
+                    Console.WriteLine("Fullpath "+ fullpath);
+                    using (StreamWriter writer = new StreamWriter(fullpath))
+                    {
+                        await writer.WriteAsync(testClass.TestCode);
+                    }
+
+                },
+                new ExecutionDataflowBlockOptions { MaxDegreeOfParallelism = pipelineConfig.MaxWritingTasks }
+            );
+
+
+            //установленным в значение true, успешное или неуспешное завершение 
+            //одного блока в конвейере приведет к завершению следующего блока в конвейере.
+
+            //successful or unsuccessful completion of one block in the pipeline will
+            //cause completion of the next block in the pipeline
+
+            var linkOptions = new DataflowLinkOptions { PropagateCompletion = true };
+
+            //Связываем блоки
+            readingBlock.LinkTo(generateTestClass, linkOptions);
+            generateTestClass.LinkTo(writeGeneratedFile, linkOptions);
+
+
+            foreach (string path in filesPath) 
+            {
+                readingBlock.Post(path);
+            }
+
+            //Mark the head of the pipeline as complete.
+            readingBlock.Complete();
+
+
+            // Wait for the last block in the pipeline to process all messages.
+            await writeGeneratedFile.Completion;
+
+        }
+
+
+
+    }
+}

@@ -3,6 +3,7 @@ using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using static Microsoft.CodeAnalysis.CSharp.SyntaxFactory;
 
 namespace TestGeneratorLib
@@ -10,57 +11,61 @@ namespace TestGeneratorLib
     public class TestCreator
     {
        
-        public List<TestStructure> GetTestContent(string content)
+        static public Task <List<TestStructure>> Generate(string content)
         {
-            List<TestStructure> tests = new List<TestStructure>();
+            return Task.Run(() =>
+            {
+                List<TestStructure> tests = new List<TestStructure>();
 
-            string testClassName;
-            string testCode;
-            string namespaceName;
-            NamespaceDeclarationSyntax testNamespace;
+                string testClassName;
+                string testCode;
+                string namespaceName;
+                NamespaceDeclarationSyntax testNamespace;
 
-            SyntaxNode root = CSharpSyntaxTree.ParseText(content).GetRoot();
+                SyntaxNode root = CSharpSyntaxTree.ParseText(content).GetRoot();
 
-            //Вытаскиваем все классы
-            var classDeclarations = root.DescendantNodes().OfType<ClassDeclarationSyntax>();
+                //Вытаскиваем все классы
+                var classDeclarations = root.DescendantNodes().OfType<ClassDeclarationSyntax>();
 
-            foreach (ClassDeclarationSyntax _class in classDeclarations) {
+                foreach (ClassDeclarationSyntax _class in classDeclarations)
+                {
 
-                testClassName = _class.Identifier.ValueText+"Tests";
+                    testClassName = _class.Identifier.ValueText + "Tests";
 
-                namespaceName = ((NamespaceDeclarationSyntax)_class.Parent).Name.ToString();
+                    namespaceName = ((NamespaceDeclarationSyntax)_class.Parent).Name.ToString();
 
-                testNamespace = NamespaceDeclaration(QualifiedName
-                    (IdentifierName(namespaceName), IdentifierName("Test")));
-
-
-                //Создание тестового класса
-                var _testclass = SyntaxFactory.CompilationUnit()
-                    .WithUsings(CreateUsings(namespaceName))                //Usings 
-                    .WithMembers(SingletonList<MemberDeclarationSyntax>(testNamespace
-                        .WithMembers(SingletonList<MemberDeclarationSyntax>(ClassDeclaration(testClassName)
-                                     .WithAttributeLists(
-                                         SingletonList(
-                                             AttributeList(
-                                                 SingletonSeparatedList(
-                                                     Attribute(
-                                                         IdentifierName("TestClass"))))))               //[TestClass]
-
-                                     .WithModifiers(TokenList(Token(SyntaxKind.PublicKeyword)))         //public 
-                                     .WithMembers(CreateTestMethods(_class))
-                                     ))));
+                    testNamespace = NamespaceDeclaration(QualifiedName
+                        (IdentifierName(namespaceName), IdentifierName("Test")));
 
 
+                    //Создание тестового класса
+                    var _testclass = SyntaxFactory.CompilationUnit()
+                        .WithUsings(CreateUsings(namespaceName))                //Usings 
+                        .WithMembers(SingletonList<MemberDeclarationSyntax>(testNamespace
+                            .WithMembers(SingletonList<MemberDeclarationSyntax>(ClassDeclaration(testClassName)
+                                         .WithAttributeLists(
+                                             SingletonList(
+                                                 AttributeList(
+                                                     SingletonSeparatedList(
+                                                         Attribute(
+                                                             IdentifierName("TestClass"))))))               //[TestClass]
 
-                //Добавление в список тестов
-                testCode = _testclass.NormalizeWhitespace().ToFullString();
-                tests.Add(new TestStructure(testClassName,testCode));
-            }
-            return tests;
+                                         .WithModifiers(TokenList(Token(SyntaxKind.PublicKeyword)))         //public 
+                                         .WithMembers(CreateTestMethods(_class))
+                                         ))));
+
+
+
+                    //Добавление в список тестов
+                    testCode = _testclass.NormalizeWhitespace().ToFullString();
+                    tests.Add(new TestStructure(testClassName, testCode));
+                }
+                return tests;
+            });
         }
 
         //Возврат списка директив using
-        private SyntaxList<UsingDirectiveSyntax> CreateUsings(string namespaceName)
+        private static  SyntaxList<UsingDirectiveSyntax> CreateUsings(string namespaceName)
         {
             List<UsingDirectiveSyntax> usings = new List<UsingDirectiveSyntax>
             {
@@ -95,7 +100,7 @@ namespace TestGeneratorLib
 
 
         //Возврат списка всех публичных методов с пустым телом (Assert.Fail)
-        internal SyntaxList<MemberDeclarationSyntax> CreateTestMethods(ClassDeclarationSyntax classInfo)
+        private static SyntaxList<MemberDeclarationSyntax> CreateTestMethods(ClassDeclarationSyntax classInfo)
         {
             List<MemberDeclarationSyntax> classMethods = new List<MemberDeclarationSyntax>();
             
@@ -126,7 +131,7 @@ namespace TestGeneratorLib
         }
 
         //Создание тела метода
-        private StatementSyntax[] FormMethodBody()
+        private static StatementSyntax[] FormMethodBody()
         {
             StatementSyntax[] body = { ParseStatement("Assert.Fail(\"autogenerated\");") };
             return body;

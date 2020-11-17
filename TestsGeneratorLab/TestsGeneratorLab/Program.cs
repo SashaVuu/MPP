@@ -1,27 +1,38 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 using TestGeneratorLib;
 
 namespace TestsGeneratorLab
 {
     class Program
     {
-        static string FilePath = "C:\\Users\\shell\\source\\repos\\FakerLab\\FakerLab\\FakerLib\\Faker.cs";
-        static string ResPath = "C:\\BSUIR\\res";
-        static string FileData;
-        static void Main(string[] args)
+        
+        static async Task Main(string[] args)
         {
-            FileData = File.ReadAllText(FilePath);
-            TestGenerator a = new TestGenerator();
-            Console.WriteLine(FileData);
+            
+            //TestCreator a = new TestCreator();
+            //Console.WriteLine(FileData);
 
-            var tests = a.Generate(FileData);
-            foreach(TestStructure test in tests) 
-            {
-                Console.WriteLine("--------------------------------------------------------------------------------------------------");
-                Console.WriteLine("["+test.TestName+"]");
-                Console.WriteLine( test.TestCode);
-            }
+            //var tests = a.Generate(FileData);
+            //foreach(TestStructure test in tests) 
+            //{
+            //    Console.WriteLine("--------------------------------------------------------------------------------------------------");
+            //    Console.WriteLine("["+test.TestName+"]");
+            //    Console.WriteLine( test.TestCode);
+            //}
+
+            string FolderPath = "C:\\BSUIR\\MPP\\res";
+
+            List<string> FilesPath = new List<string>() {
+                "C:\\BSUIR\\MPP\\files\\Faker.cs",
+                "C:\\BSUIR\\MPP\\files\\Generator.cs",
+                "C:\\BSUIR\\MPP\\files\\MultiplayerGame.cs"
+            };
+
+            Pipeline p = new Pipeline(new PipelineConfiguration(1,1,1));
+            await p.Execute(FilesPath,FolderPath);
            
         }
 

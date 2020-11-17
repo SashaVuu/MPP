@@ -9,7 +9,7 @@ namespace TestGeneratorLib
 
         public TestStructure(string name,string content) 
         {
-            TestName = name + "Tests.cs";
+            TestName = name + ".cs";
             TestCode = content;
         }
     }
