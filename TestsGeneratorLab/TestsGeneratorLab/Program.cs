@@ -11,24 +11,13 @@ namespace TestsGeneratorLab
         
         static async Task Main(string[] args)
         {
-            
-            //TestCreator a = new TestCreator();
-            //Console.WriteLine(FileData);
-
-            //var tests = a.Generate(FileData);
-            //foreach(TestStructure test in tests) 
-            //{
-            //    Console.WriteLine("--------------------------------------------------------------------------------------------------");
-            //    Console.WriteLine("["+test.TestName+"]");
-            //    Console.WriteLine( test.TestCode);
-            //}
-
+          
             string FolderPath = "C:\\BSUIR\\MPP\\res";
 
             List<string> FilesPath = new List<string>() {
                 "C:\\BSUIR\\MPP\\files\\Faker.cs",
                 "C:\\BSUIR\\MPP\\files\\Generator.cs",
-                "C:\\BSUIR\\MPP\\files\\MultiplayerGame.cs"
+                "C:\\BSUIR\\MPP\\files\\TwoClasses.cs"
             };
 
             Pipeline p = new Pipeline(new PipelineConfiguration(1,1,1));

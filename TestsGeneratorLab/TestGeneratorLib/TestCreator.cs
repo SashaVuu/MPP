@@ -20,6 +20,7 @@ namespace TestGeneratorLib
                 string testClassName;
                 string testCode;
                 string namespaceName;
+
                 NamespaceDeclarationSyntax testNamespace;
 
                 SyntaxNode root = CSharpSyntaxTree.ParseText(content).GetRoot();
@@ -40,7 +41,7 @@ namespace TestGeneratorLib
 
                     //Создание тестового класса
                     var _testclass = SyntaxFactory.CompilationUnit()
-                        .WithUsings(CreateUsings(namespaceName))                //Usings 
+                        .WithUsings(CreateUsings(namespaceName))               
                         .WithMembers(SingletonList<MemberDeclarationSyntax>(testNamespace
                             .WithMembers(SingletonList<MemberDeclarationSyntax>(ClassDeclaration(testClassName)
                                          .WithAttributeLists(
@@ -48,7 +49,7 @@ namespace TestGeneratorLib
                                                  AttributeList(
                                                      SingletonSeparatedList(
                                                          Attribute(
-                                                             IdentifierName("TestClass"))))))               //[TestClass]
+                                                             IdentifierName("TestFixture"))))))               
 
                                          .WithModifiers(TokenList(Token(SyntaxKind.PublicKeyword)))         //public 
                                          .WithMembers(CreateTestMethods(_class))
@@ -89,9 +90,6 @@ namespace TestGeneratorLib
                         IdentifierName("NUnit"),
                         IdentifierName("Framework"))),
 
-                UsingDirective(
-                    IdentifierName("Moq")),
-                //!!!!!!!!!!
                 UsingDirective(IdentifierName(namespaceName))
             };
 
@@ -104,7 +102,7 @@ namespace TestGeneratorLib
         {
             List<MemberDeclarationSyntax> classMethods = new List<MemberDeclarationSyntax>();
             
-            AttributeSyntax attr = Attribute(ParseName("TestMethod"));
+            AttributeSyntax attr = Attribute(ParseName("Test"));
 
             string methodName;
 
@@ -114,17 +112,16 @@ namespace TestGeneratorLib
 
             foreach (var method in publicMethods)
             {
-
-                methodName = (method as MethodDeclarationSyntax).Identifier.ValueText;
-                if (method != null)
-                {
+                methodName = method.Identifier.ValueText;
+                //if (method != null)
+                //{
                     MethodDeclarationSyntax testMethod = MethodDeclaration(ParseTypeName("void"), methodName + "Test")
                         .AddModifiers(Token(SyntaxKind.PublicKeyword))      //public
                         .AddBodyStatements(FormMethodBody())                //body
                         .AddAttributeLists(
-                            AttributeList().AddAttributes(attr));           //[TestMethod]
+                            AttributeList().AddAttributes(attr));           //[Test]
                     classMethods.Add(testMethod);
-                }
+               // }
             }
 
             return List(classMethods);

@@ -16,7 +16,7 @@ namespace TestsGeneratorLab
             pipelineConfig = PipelineConfig;
         }
 
-        //async - указывает, что данный метод может содержать одно или несколько выражений await.
+
         public async Task Execute(List<string> filesPath,string outputPath)
         {
             
@@ -50,9 +50,6 @@ namespace TestsGeneratorLab
 
             //Блок записи теста в файл
             //TestStructure
-            //Предоставляет блок потока данных, который вызывает предоставленный делегат Action<T>
-            //для каждого полученного элемента данных
-
             var writeGeneratedFile = new ActionBlock<TestStructure>(
                 async testClass =>
                 {
@@ -68,15 +65,11 @@ namespace TestsGeneratorLab
             );
 
 
-            //установленным в значение true, успешное или неуспешное завершение 
-            //одного блока в конвейере приведет к завершению следующего блока в конвейере.
-
-            //successful or unsuccessful completion of one block in the pipeline will
+            //Successful or unsuccessful completion of one block in the pipeline will
             //cause completion of the next block in the pipeline
-
             var linkOptions = new DataflowLinkOptions { PropagateCompletion = true };
 
-            //Связываем блоки
+
             readingBlock.LinkTo(generateTestClass, linkOptions);
             generateTestClass.LinkTo(writeGeneratedFile, linkOptions);
 
@@ -89,8 +82,6 @@ namespace TestsGeneratorLab
             //Mark the head of the pipeline as complete.
             readingBlock.Complete();
 
-
-            // Wait for the last block in the pipeline to process all messages.
             await writeGeneratedFile.Completion;
 
         }
