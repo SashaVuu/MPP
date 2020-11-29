@@ -87,14 +87,14 @@ namespace FakerUnitTests
         }
 
         
-        [TestMethod]
-        public void StructCreationTest()
-        {
-            Time time = faker.Create<Time>();
-            Assert.AreNotEqual(0, time.hours);
-            Assert.AreNotEqual(0, time.minutes);
-            Assert.AreNotEqual(0, time.seconds);
-        }
+        //[TestMethod]
+        //public void StructCreationTest()
+        //{
+        //    Time time = faker.Create<Time>();
+        //    Assert.AreNotEqual(0, time.hours);
+        //    Assert.AreNotEqual(0, time.minutes);
+        //    Assert.AreNotEqual(0, time.seconds);
+        //}
 
         //Double+Long
         [TestMethod]
@@ -106,12 +106,12 @@ namespace FakerUnitTests
             Assert.AreNotEqual<long>(0, l);
         }
 
-        [TestMethod]
-        public void IsAllPluginsBeenUploadedTest()
-        {
-            Generator gen = new Generator();
-            Assert.AreEqual(8, gen.GetAmountOfGenerators());
-        }
+        //[TestMethod]
+        //public void IsAllPluginsBeenUploadedTest()
+        //{
+        //    Generator gen = new Generator();
+        //    Assert.AreEqual(8, gen.GetAmountOfGenerators());
+        //}
 
         // Публичные поля и свойства созданного объекта не пустые
         [TestMethod]
@@ -143,21 +143,21 @@ namespace FakerUnitTests
             Assert.AreNotEqual(null, uri);
         }
 
-        [TestMethod]
-        public void StructTest()
-        {
-            MyStruct b = faker.Create<MyStruct>();
-            Assert.AreNotEqual(null, b);
-            Assert.AreNotEqual(0, b.a);
-        }
+        //[TestMethod]
+        //public void StructTest()
+        //{
+        //    MyStruct b = faker.Create<MyStruct>();
+        //    Assert.AreNotEqual(null, b);
+        //    Assert.AreNotEqual(0, b.a);
+        //}
 
 
-        [TestMethod]
-        public void StructTest1()
-        {
-            BBBB b = faker.Create<BBBB>();
-            Assert.IsNull(b);
-        }
+        //[TestMethod]
+        //public void StructTest1()
+        //{
+        //    BBBB b = faker.Create<BBBB>();
+        //    Assert.IsNull(b);
+        //}
 
 
     }

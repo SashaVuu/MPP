@@ -113,15 +113,14 @@ namespace TestGeneratorLib
             foreach (var method in publicMethods)
             {
                 methodName = method.Identifier.ValueText;
-                //if (method != null)
-                //{
+   
                     MethodDeclarationSyntax testMethod = MethodDeclaration(ParseTypeName("void"), methodName + "Test")
                         .AddModifiers(Token(SyntaxKind.PublicKeyword))      //public
                         .AddBodyStatements(FormMethodBody())                //body
                         .AddAttributeLists(
                             AttributeList().AddAttributes(attr));           //[Test]
                     classMethods.Add(testMethod);
-               // }
+   
             }
 
             return List(classMethods);
