@@ -17,14 +17,28 @@ namespace DependencyInjectorTests
         [Test]
         public void SimpleDependencyTest() 
         {
+
         }
 
-       
+
+
+        [Test]
+        public void SingletonTest()
+        {
+            DependencyConfig dependencies = new DependencyConfig();
+            dependencies.Register<IService, ServiceImpl1>(LifeTime.Singleton);
+
+            DependencyProvider provider = new DependencyProvider(dependencies);
+            var service1 = provider.Resolve<IService>();
+            var service2 = provider.Resolve<IService>();
+            Assert.IsNotNull(service1);
+            Assert.AreEqual(service1, service2);
+        }
 
 
         //IEnumerable
         [Test]
-        public void IEnumerableTest()
+        public void ManyImplementationTest()
         {
             DependencyConfig dependencies = new DependencyConfig();
             dependencies.Register<IService, ServiceImpl1>(LifeTime.Instance);
