@@ -23,7 +23,7 @@ namespace DependencyInjectorLib
             if (tImplementation.IsAbstract)
                 throw new ArgumentException("TImplementation can't be an abstract classs");
 
-            if (tImplementation.GetConstructors(BindingFlags.Public | BindingFlags.Instance).Any())
+            if (!tImplementation.GetConstructors(BindingFlags.Public | BindingFlags.Instance).Any())
                 throw new ArgumentException("TImplementation doesn't have any public constructors");
 
             if (!tDependency.IsAssignableFrom(tImplementation) && !tDependency.IsGenericTypeDefinition)
