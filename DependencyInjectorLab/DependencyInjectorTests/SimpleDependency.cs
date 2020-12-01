@@ -34,4 +34,11 @@ namespace DependencyInjectorTests
 
     public class RepositoryImpl : IRepository { }
 
+    public abstract class AbstractClass:IService { }
+
+    public class NonConstructor:IService
+    {
+        private NonConstructor() { }
+    }
+
 }

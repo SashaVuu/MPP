@@ -41,21 +41,28 @@ namespace DependencyInjectorLib
                 cycleStack.Push(DependencyType);
                 List<ImplementationInfo> implInfos;
 
+
                 // 1.IEnumerable<IService> services = provider.Resolve<IEnumerable<IService>>();
                 if (typeof(IEnumerable).IsAssignableFrom(DependencyType)) 
                 {
                     Type actualDependency = DependencyType.GetGenericArguments()[0];
-                    implInfos = dependencyConfig.RegisteredDependencies[actualDependency];
-                    int implCount = implInfos.Count;
-                    var array = Array.CreateInstance(actualDependency, implCount);
+                    if (dependencyConfig.RegisteredDependencies.ContainsKey(actualDependency)) {
+                        implInfos = dependencyConfig.RegisteredDependencies[actualDependency];
+                        int implCount = implInfos.Count;
+                        var array = Array.CreateInstance(actualDependency, implCount);
 
-                    for (int i = 0; i < implCount; i++)
-                        array.SetValue(GetObject(implInfos[i]), i);
+                        for (int i = 0; i < implCount; i++)
+                            array.SetValue(GetObject(implInfos[i]), i);
 
-                    cycleStack.Pop();
-                    return array;
+                        cycleStack.Pop();
+                        return array;
+                    }
+                    else
+                    {
+                        throw new KeyNotFoundException($"Dependency {actualDependency.Name} is not registered.");
+                    }
+
                 }
-
 
                 // 2.Open generic dependency
                 //Если это дженерик и имплементация IService<> есть в словаре 
@@ -63,7 +70,7 @@ namespace DependencyInjectorLib
                 {
                     //Получаем из IService<IRepos>  -> IService'
                     Type GenericType = DependencyType.GetGenericTypeDefinition();
-
+                    
                     //Вытягиваем реализацию ServiceImpl
                     ImplementationInfo implInfo = dependencyConfig.RegisteredDependencies[GenericType].First();
 
@@ -73,7 +80,8 @@ namespace DependencyInjectorLib
                     object result = GetObject(implInfo);
                     cycleStack.Pop();
 
-                    return result;                    
+                    return result;
+                    
                 }
 
 
@@ -86,6 +94,10 @@ namespace DependencyInjectorLib
                     cycleStack.Pop();
                     
                     return result;
+                }
+                else if (!dependencyConfig.RegisteredDependencies.ContainsKey(DependencyType))
+                {
+                    throw new KeyNotFoundException($"Dependency {DependencyType.Name} is not registered.");
                 }
 
             }
@@ -141,11 +153,15 @@ namespace DependencyInjectorLib
                     if (dependencyConfig.RegisteredDependencies.ContainsKey(paramType))
                     {
                         object paramObj = Resolve(paramType);
-                        constructorParams[i]= paramObj;
+                        constructorParams[i] = paramObj;
                     }
-                    else
+                    else if (paramType.Namespace == "System")
                     {
                         constructorParams[i] = GetDefaultValue(paramType);
+                    }
+                    else 
+                    {
+                        throw new KeyNotFoundException($"Dependency {paramType.Name} is not registered.");
                     }
 
                 }
